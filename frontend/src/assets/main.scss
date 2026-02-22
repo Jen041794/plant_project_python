@@ -1,0 +1,16 @@
+@import 'bootstrap/scss/bootstrap';
+@import './styles/mixins';
+@import './styles/layout/layout';
+@import './styles/theme/color';
+@import './styles/layout/components';
+@import './styles/layout/navbar';
+@import './styles/layout/footer';
+@import './styles/pages/homepage';
+@import './styles/pages/IdentifyPage';
+@import './styles/pages/result';
+@import './styles/layout/components';
+@import './styles/pages/DiseasesPage';
+@import './styles/pages/diseasedetailpage';
+@import './styles/pages/aboutus';
+@import './styles/pages/faq';
+@import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');

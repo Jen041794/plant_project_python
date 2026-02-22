@@ -1,0 +1,497 @@
+/* ══════════════════════════════════════════════
+   DiseaseDetailPage.scss — 病害詳情頁樣式
+   ══════════════════════════════════════════════ */
+
+$mint:      #10b981;
+$teal:      #0d9488;
+$teal-dark: #0f766e;
+$text-dark: #0f2419;
+$text-mid:  #3a6349;
+$text-soft: #6b9a7e;
+$white:     #ffffff;
+
+// 嚴重度色票
+$sev-colors: (
+    '嚴重':      (#fef2f2, #ef4444, rgba(239,68,68,.15)),
+    '中度至嚴重': (#fff7ed, #f97316, rgba(249,115,22,.15)),
+    '中度':      (#fefce8, #ca8a04, rgba(202,138,4,.15)),
+    '低':        (#f0fdf4, #16a34a, rgba(22,163,74,.15)),
+    '無':        (#f0fdfa, #0d9488, rgba(13,148,136,.15)),
+    '健康':      (#f0fdf4, #16a34a, rgba(22,163,74,.15)),
+);
+
+// ── 頁面容器 ──────────────────────────────────
+.ddp {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    background: linear-gradient(
+        160deg,
+        rgba(240,253,244,.6) 0%,
+        rgba(255,255,255,1) 40%,
+        rgba(240,253,250,.5) 100%
+    );
+    position: relative;
+
+    // 背景裝飾
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; right: -100px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba($mint,.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+}
+
+.ddp-container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+// ── 麵包屑 ────────────────────────────────────
+.ddp-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+
+    &-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: none;
+        border: none;
+        color: $teal;
+        font-size: .9rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0;
+        transition: gap .2s ease;
+        font-family: inherit;
+
+        &:hover { gap: 10px; }
+    }
+
+    &-sep { color: rgba(0,0,0,.2); }
+
+    &-current {
+        font-size: .88rem;
+        color: $text-soft;
+    }
+}
+
+// ── Hero 區塊（圖片 + 基本資訊）──────────────
+.ddp-hero {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    border-radius: 22px;
+    overflow: hidden;
+    background: $white;
+    border: 1px solid rgba($mint, .16);
+    box-shadow:
+        0 2px 0  rgba($mint, .1),
+        0 8px 0  rgba(0,0,0,.04),
+        0 32px 48px rgba($teal, .08);
+    margin-bottom: 28px;
+    animation: ddpFadeUp .5s ease both;
+}
+
+// 圖片側
+.ddp-hero-img {
+    position: relative;
+    background: linear-gradient(160deg, #e8f8f0, #d1fae5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+        transition: transform .5s ease;
+
+        &:hover { transform: scale(1.03); }
+    }
+
+    &-placeholder {
+        font-size: 7rem;
+        opacity: .35;
+        user-select: none;
+    }
+
+    // 圖片來源標籤
+    &-source {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        padding: 8px 16px;
+        background: rgba($white, .82);
+        backdrop-filter: blur(8px);
+        font-size: .72rem;
+        color: $text-soft;
+        text-align: center;
+        border-top: 1px solid rgba($mint, .1);
+    }
+}
+
+// 資訊側
+.ddp-hero-info {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.ddp-cat-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: $teal;
+    background: rgba($mint, .1);
+    border: 1px solid rgba($mint, .22);
+    letter-spacing: .05em;
+    width: fit-content;
+}
+
+.ddp-title-zh {
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: $text-dark;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.ddp-title-en {
+    font-size: 1rem;
+    font-style: italic;
+    color: $text-soft;
+    margin: 0;
+}
+
+// 嚴重度 + 病原體列
+.ddp-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.ddp-sev-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    border: 1px solid transparent;
+}
+
+.ddp-pathogen {
+    font-size: .88rem;
+    color: $text-mid;
+
+    em {
+        font-style: italic;
+        font-weight: 600;
+    }
+}
+
+// 寄主植物
+.ddp-hosts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-items: center;
+
+    &-label {
+        font-size: .75rem;
+        color: rgba($text-soft, .6);
+        flex-shrink: 0;
+    }
+
+    &-tag {
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: .8rem;
+        background: rgba($mint, .08);
+        color: $teal;
+        border: 1px solid rgba($mint, .18);
+    }
+}
+
+// 分布地區
+.ddp-dist {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba($mint, .06);
+    border: 1px solid rgba($mint, .12);
+    font-size: .9rem;
+    color: $text-mid;
+    line-height: 1.65;
+
+    &-icon { flex-shrink: 0; font-size: 1rem; }
+    strong  { color: $text-dark; font-weight: 700; }
+}
+
+// ── 內容卡片網格 ──────────────────────────────
+.ddp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+// 資訊卡片
+.ddp-card {
+    background: $white;
+    border: 1px solid rgba($mint, .14);
+    border-radius: 18px;
+    padding: 28px 30px;
+    box-shadow:
+        0 2px 0 rgba($mint,.08),
+        0 8px 24px rgba($teal,.05);
+    animation: ddpFadeUp .5s ease both;
+
+    &:nth-child(2) { animation-delay: .08s; }
+    &:nth-child(3) { animation-delay: .12s; }
+    &:nth-child(4) { animation-delay: .16s; }
+}
+
+// 區段標題
+.ddp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba($mint, .12);
+}
+
+// 項目清單
+.ddp-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    &-item {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: .92rem;
+        line-height: 1.72;
+        color: $text-mid;
+
+        &::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--ddp-bullet, $mint);
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+    }
+}
+
+// ── 專家建議 ──────────────────────────────────
+.ddp-expert {
+    background: linear-gradient(135deg, rgba($mint,.06), rgba($teal,.03));
+    border: 1px solid rgba($mint, .2);
+    border-left: 4px solid $mint;
+    border-radius: 0 16px 16px 0;
+    padding: 24px 28px;
+    animation: ddpFadeUp .5s ease .18s both;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    &-avatar {
+        width: 46px; height: 46px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $teal, $mint);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        box-shadow: 0 3px 10px rgba($teal,.28);
+    }
+
+    &-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-dark;
+    }
+
+    &-subtitle {
+        font-size: .78rem;
+        color: $text-soft;
+        margin-top: 2px;
+    }
+
+    &-body {
+        font-size: .95rem;
+        line-height: 1.85;
+        color: $text-mid;
+        font-style: italic;
+        position: relative;
+        padding-left: 20px;
+
+        &::before {
+            content: '\201C';
+            position: absolute;
+            left: 0; top: -6px;
+            font-size: 2.5rem;
+            color: rgba($mint, .35);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+    }
+}
+
+// ── 多圖瀏覽 ──────────────────────────────────
+.ddp-gallery {
+    background: $white;
+    border: 1px solid rgba($mint, .14);
+    border-radius: 18px;
+    padding: 28px 30px;
+    box-shadow: 0 2px 0 rgba($mint,.08), 0 8px 24px rgba($teal,.05);
+    animation: ddpFadeUp .5s ease .22s both;
+
+    &-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-dark;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba($mint,.12);
+    }
+
+    &-grid {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    &-item {
+        flex: 1 1 200px;
+        max-width: 260px;
+
+        img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba($mint, .12);
+            transition: transform .3s ease, box-shadow .3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+                box-shadow: 0 8px 20px rgba($teal, .15);
+            }
+        }
+
+        p {
+            font-size: .75rem;
+            color: $text-soft;
+            margin-top: 7px;
+            text-align: center;
+            line-height: 1.4;
+        }
+    }
+
+    &-placeholder {
+        width: 100%;
+        height: 160px;
+        background: linear-gradient(135deg, rgba($mint,.08), rgba($teal,.04));
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.8rem;
+        color: rgba($mint, .3);
+    }
+}
+
+// ── 底部按鈕列 ────────────────────────────────
+.ddp-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 28px;
+    animation: ddpFadeUp .5s ease .26s both;
+}
+
+.ddp-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: rgba($white, .8);
+    border: 1.5px solid rgba($mint, .3);
+    border-radius: 50px;
+    color: $text-dark;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all .25s ease;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+        border-color: rgba($mint,.55);
+        background: rgba(240,253,244,.9);
+        transform: translateY(-2px);
+    }
+}
+
+.ddp-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 32px;
+    background: linear-gradient(135deg, $teal, $mint);
+    border: none;
+    border-radius: 50px;
+    color: $white;
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 6px 20px rgba($teal,.32);
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba($teal,.42);
+    }
+}
+
+// ── 動畫 ─────────────────────────────────────
+@keyframes ddpFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}

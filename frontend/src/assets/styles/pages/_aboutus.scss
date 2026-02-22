@@ -1,0 +1,361 @@
+// AboutUs.scss
+
+// ── 滾動顯示動畫 ──────────────────────────────────────────────────────────────
+.reveal {
+    opacity: 0;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+    &--up {
+        transform: translateY(40px);
+    }
+    &--left {
+        transform: translateX(-30px);
+    }
+
+    &.revealed {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// ── 共用 ──────────────────────────────────────────────────────────────────────
+.about {
+    background: #f0faf6;
+    min-height: 100vh;
+
+    &__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 16px;
+        border-radius: 50px;
+        border: 1px solid rgba(26, 138, 122, 0.25);
+        background: rgba(26, 138, 122, 0.07);
+        color: #1a8a7a;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__section-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+
+    &__section-title {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        color: #1a2e22;
+        margin: 0;
+    }
+
+    // ── Hero ──────────────────────────────────────────────────────────────────
+    &__hero {
+        position: relative;
+        text-align: center;
+        padding: 140px 24px 100px;
+        overflow: hidden;
+    }
+
+    &__hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+
+        &--1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(26, 138, 122, 0.12);
+            top: -100px;
+            left: -100px;
+        }
+
+        &--2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(82, 183, 136, 0.1);
+            bottom: -80px;
+            right: -80px;
+        }
+    }
+
+    &__hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 680px;
+        margin: 0 auto;
+        animation: heroFadeUp 0.9s ease both;
+    }
+
+    @keyframes heroFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    &__hero-sub {
+        font-size: 1.1rem;
+        color: #6b9a7e;
+        margin-bottom: 6px;
+        font-weight: 500;
+    }
+
+    &__hero-title {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        font-weight: 900;
+        color: #1a2e22;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+    }
+
+    &__hero-desc {
+        font-size: 1rem;
+        color: #4a7060;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    // ── 使命願景卡片 ──────────────────────────────────────────────────────────
+    &__cards {
+        padding: 0 0 80px;
+    }
+
+    &__card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 36px 32px;
+        height: 100%;
+        border: 1px solid rgba(26, 138, 122, 0.1);
+        box-shadow: 0 4px 24px rgba(26, 138, 122, 0.06);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(26, 138, 122, 0.12);
+        }
+    }
+
+    &__card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #1a8a7a, #52b788);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    &__card-title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #1a2e22;
+        margin-bottom: 12px;
+    }
+
+    &__card-desc {
+        font-size: 0.9rem;
+        color: #4a7060;
+        line-height: 1.75;
+        margin-bottom: 20px;
+    }
+
+    &__card-tag {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        color: #1a8a7a;
+        font-weight: 600;
+    }
+
+    &__card-check {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: rgba(26, 138, 122, 0.12);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        color: #1a8a7a;
+        flex-shrink: 0;
+    }
+
+    // ── 數據統計 ──────────────────────────────────────────────────────────────
+    &__stats {
+        background: linear-gradient(135deg, #1a8a7a 0%, #2aaa96 100%);
+        padding: 64px 0;
+        margin-bottom: 80px;
+    }
+
+    &__stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 32px;
+        text-align: center;
+    }
+
+    &__stat-value {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+    }
+
+    &__stat-label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+    }
+
+    // ── 發展歷程 ──────────────────────────────────────────────────────────────
+    &__timeline {
+        padding: 0 0 80px;
+    }
+
+    &__timeline-list {
+        max-width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    &__timeline-item {
+        display: grid;
+        grid-template-columns: 80px 24px 1fr;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(26, 138, 122, 0.1);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__timeline-year {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: #1a8a7a;
+        text-align: right;
+        padding-top: 2px;
+    }
+
+    &__timeline-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #1a8a7a;
+        border: 3px solid #d4f0e8;
+        margin-top: 4px;
+        flex-shrink: 0;
+    }
+
+    &__timeline-event {
+        font-size: 0.9rem;
+        color: #4a7060;
+        line-height: 1.7;
+    }
+
+    // ── 團隊 ──────────────────────────────────────────────────────────────────
+    &__team {
+        padding: 0 0 80px;
+    }
+
+    &__member {
+        text-align: center;
+        padding: 32px 20px;
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid rgba(26, 138, 122, 0.1);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(26, 138, 122, 0.1);
+        }
+    }
+
+    &__member-avatar {
+        font-size: 2.8rem;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(26, 138, 122, 0.1), rgba(82, 183, 136, 0.15));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+    }
+
+    &__member-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #1a2e22;
+        margin-bottom: 4px;
+    }
+
+    &__member-role {
+        font-size: 0.78rem;
+        color: #1a8a7a;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    &__member-desc {
+        font-size: 0.8rem;
+        color: #6b9a7e;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    // ── CTA ───────────────────────────────────────────────────────────────────
+    &__cta {
+        padding: 0 0 100px;
+    }
+
+    &__cta-box {
+        text-align: center;
+        background: linear-gradient(135deg, #1a2e22 0%, #1a8a7a 100%);
+        border-radius: 24px;
+        padding: 64px 32px;
+    }
+
+    &__cta-title {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 12px;
+    }
+
+    &__cta-desc {
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 32px;
+        font-size: 0.95rem;
+    }
+
+    &__cta-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

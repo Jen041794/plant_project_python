@@ -1,0 +1,54 @@
+# ===== 環境變數 =====
+.env
+.env.local
+.env.production
+
+# ===== Kaggle 憑證（絕對不能上傳）=====
+.kaggle/
+kaggle.json
+
+# ===== Python =====
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# ===== 資料庫 =====
+*.sqlite
+*.sqlite3
+*.db
+
+# ===== 資料集/模型（通常很大）=====
+*.csv
+*.json
+*.pkl
+*.h5
+*.pt
+*.pth
+data/
+datasets/
+
+# ===== Jupyter =====
+.ipynb_checkpoints
+*.ipynb
+
+# ===== 測試 =====
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===== 打包 =====
+dist/
+build/
+
+# ===== 系統 =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE =====
+.vscode/
+.idea/

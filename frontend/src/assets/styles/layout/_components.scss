@@ -1,0 +1,415 @@
+//SearchBar.scss
+/* ══════════════════════════════════════════════
+   SearchBar.scss — 病害搜尋區塊樣式
+   ══════════════════════════════════════════════ */
+
+$mint: #10b981;
+$teal: #0d9488;
+$text-dark: #0f2419;
+$text-mid: #4a7a5e;
+$text-soft: #6b9a7e;
+$white: #ffffff;
+
+// ── 搜尋卡片容器 ──────────────────────────────
+.sb-wrap {
+    background: rgba($white, 0.82);
+    border: 1px solid rgba($mint, 0.18);
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 2px 0 rgba($mint, 0.1),
+        0 6px 0 rgba(0, 0, 0, 0.04),
+        0 18px 32px rgba($teal, 0.07);
+    position: relative;
+    overflow: hidden;
+
+    // 頂部光條
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 12%;
+        right: 12%;
+        height: 2px;
+        border-radius: 0 0 3px 3px;
+        background: linear-gradient(90deg, transparent, rgba($mint, 0.5), transparent);
+    }
+}
+
+// ── 內部 flex 列 ──────────────────────────────
+.sb-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+// ── 共用輸入框基底 ────────────────────────────
+%sb-input-base {
+    width: 100%;
+    height: 46px;
+    border-radius: 10px;
+    border: 1.5px solid rgba($mint, 0.2);
+    background: rgba($white, 0.9);
+    color: $text-dark;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition:
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
+
+    &::placeholder {
+        color: rgba($text-soft, 0.6);
+    }
+
+    &:focus {
+        border-color: rgba($mint, 0.55);
+        background: $white;
+        box-shadow: 0 0 0 3px rgba($mint, 0.1);
+    }
+}
+
+// ── 搜尋框 ────────────────────────────────────
+.sb-search {
+    flex: 1 1 240px;
+    position: relative;
+
+    &-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        pointer-events: none;
+        opacity: 0.55;
+        transition: opacity 0.2s;
+    }
+
+    &-input {
+        @extend %sb-input-base;
+        padding: 0 16px 0 42px;
+
+        &:focus + .sb-search-icon,
+        &:focus ~ .sb-search-icon {
+            opacity: 0.9;
+        }
+    }
+
+    // 清除按鈕（有文字時顯示）
+    &-clear {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: none;
+        background: rgba($text-soft, 0.15);
+        color: $text-soft;
+        font-size: 0.75rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+
+        &:hover {
+            background: rgba($teal, 0.2);
+        }
+    }
+}
+
+// ── 下拉選單 ──────────────────────────────────
+.sb-select-wrap {
+    flex: 0 1 178px;
+    position: relative;
+
+    // 自訂箭頭
+    &::after {
+        content: '▾';
+        position: absolute;
+        right: 13px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.7rem;
+        color: $text-soft;
+        pointer-events: none;
+    }
+
+    select {
+        @extend %sb-input-base;
+        padding: 0 34px 0 14px;
+        appearance: none;
+        cursor: pointer;
+    }
+}
+
+// ── 結果計數 ──────────────────────────────────
+.sb-count {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: $text-soft;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    strong {
+        font-size: 1rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, $teal, $mint);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+// ── 分隔線（選用） ────────────────────────────
+.sb-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba($mint, 0.2);
+    flex-shrink: 0;
+    align-self: center;
+}
+
+/* ══════════════════════════════════════════════
+   DiseaseCard.scss — 病害卡片元件樣式
+   ══════════════════════════════════════════════ */
+
+$mint:       #10b981;
+$teal:       #0d9488;
+$teal-dark:  #0f766e;
+$text-dark:  #0f2419;
+$text-mid:   #3a6349;
+$text-soft:  #6b9a7e;
+$white:      #ffffff;
+
+// ── 卡片主體 ──────────────────────────────────
+.dc {
+    background: rgba($white, .88);
+    border: 1px solid rgba($mint, .16);
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+        0  1px 0  rgba($mint, .1),
+        0  4px 0  rgba(0,0,0,.05),
+        0 12px 0  rgba(0,0,0,.03),
+        0 24px 32px rgba($teal, .07);
+
+    transition:
+        transform .3s cubic-bezier(.23, 1, .32, 1),
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: rgba($mint, .38);
+        box-shadow:
+            0  1px 0  rgba($mint, .18),
+            0  6px 0  rgba(0,0,0,.07),
+            0 16px 0  rgba(0,0,0,.04),
+            0 36px 48px rgba($teal, .14);
+
+        .dc-img img    { transform: scale(1.05); }
+        .dc-arrow      { transform: translateX(3px); opacity: 1; }
+        .dc-img-overlay { opacity: 1; }
+    }
+
+    // 頂部光條（hover 時顯現）
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 15%; right: 15%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba($mint, .6), transparent);
+        border-radius: 0 0 3px 3px;
+        opacity: 0;
+        transition: opacity .3s;
+        z-index: 2;
+    }
+    &:hover::before { opacity: 1; }
+}
+
+// ── 圖片區 ────────────────────────────────────
+.dc-img {
+    position: relative;
+    padding-top: 54%;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba($mint,.08), rgba($teal,.04));
+    flex-shrink: 0;
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform .45s cubic-bezier(.23,1,.32,1);
+    }
+
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent 40%, rgba($teal-dark,.28));
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+    &-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 2.8rem;
+        color: rgba($mint, .4);
+
+        span {
+            font-size: .82rem;          // ↑ 原 .72rem
+            color: rgba($text-soft, .5);
+            letter-spacing: .06em;
+        }
+    }
+}
+
+// 嚴重度角標
+.dc-sev-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    padding: 5px 12px;              // ↑ 原 4px 10px
+    border-radius: 999px;
+    font-size: .8rem;               // ↑ 原 .72rem
+    font-weight: 700;
+    letter-spacing: .04em;
+    backdrop-filter: blur(8px);
+    border: 1px solid transparent;
+    z-index: 2;
+}
+
+// ── 內容區 ────────────────────────────────────
+.dc-body {
+    padding: 20px 22px 22px;        // ↑ 原 18px 20px 20px
+    display: flex;
+    flex-direction: column;
+    gap: 12px;                      // ↑ 原 10px
+    flex: 1;
+}
+
+// 類別標籤
+.dc-cat {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;              // ↑ 原 3px 10px
+    border-radius: 999px;
+    font-size: .8rem;               // ↑ 原 .72rem
+    font-weight: 600;
+    letter-spacing: .04em;
+    width: fit-content;
+
+    &--fungal    { background: rgba($mint,.1);        color: $teal;   border: 1px solid rgba($mint,.22); }
+    &--bacterial { background: rgba(59,130,246,.1);   color: #2563eb; border: 1px solid rgba(59,130,246,.22); }
+    &--oomycete  { background: rgba(249,115,22,.1);   color: #c2410c; border: 1px solid rgba(249,115,22,.22); }
+    &--healthy   { background: rgba(16,185,129,.12);  color: $teal;   border: 1px solid rgba($mint,.25); }
+    &--other     { background: rgba(100,116,139,.08); color: #475569; border: 1px solid rgba(100,116,139,.18); }
+}
+
+// 中文名稱
+.dc-name-zh {
+    font-size: 1.22rem;             // ↑ 原 1.1rem
+    font-weight: 700;
+    color: $text-dark;
+    line-height: 1.25;
+    margin: 0;
+}
+
+// 英文名稱
+.dc-name-en {
+    font-size: .92rem;              // ↑ 原 .82rem
+    color: $text-soft;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.3;
+}
+
+// 病原體
+.dc-pathogen {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .88rem;              // ↑ 原 .8rem
+
+    &-label {
+        color: rgba($text-soft, .6);
+        flex-shrink: 0;
+    }
+
+    &-value {
+        color: $text-mid;
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+// 寄主植物 tags
+.dc-hosts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;                       // ↑ 原 5px
+
+    &-tag {
+        padding: 3px 11px;          // ↑ 原 2px 9px
+        border-radius: 999px;
+        font-size: .8rem;           // ↑ 原 .72rem
+        background: rgba($mint,.08);
+        color: $teal;
+        border: 1px solid rgba($mint,.16);
+    }
+
+    &-more {
+        padding: 3px 11px;          // ↑ 原 2px 9px
+        border-radius: 999px;
+        font-size: .8rem;           // ↑ 原 .72rem
+        background: rgba(100,116,139,.07);
+        color: #94a3b8;
+        border: 1px solid rgba(100,116,139,.15);
+    }
+}
+
+// ── 底部 ──────────────────────────────────────
+.dc-footer {
+    padding: 14px 22px;             // ↑ 原 12px 20px
+    border-top: 1px solid rgba($mint,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.dc-footer-text {
+    font-size: .88rem;              // ↑ 原 .8rem
+    color: $teal;
+    font-weight: 600;
+    letter-spacing: .03em;
+}
+
+.dc-arrow {
+    font-size: 1rem;                // ↑ 原 .9rem
+    color: $teal;
+    transition: transform .25s ease, opacity .25s ease;
+    opacity: .6;
+}

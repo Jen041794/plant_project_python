@@ -1,0 +1,637 @@
+// _result.scss  v3 — 淺色系 + 左欄 sticky
+
+// ── 頁面底色 ──────────────────────────────────────────────────────────────────
+.result-page {
+    background: #f0f9f6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+// ── 頂部橫幅 ──────────────────────────────────────────────────────────────────
+.result-hero {
+    text-align: center;
+    padding: 48px 24px 40px;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 32px;
+
+    &--disease {
+        background: linear-gradient(135deg, #ff6b35, #ef4444);
+        color: #fff;
+    }
+    &--healthy {
+        background: linear-gradient(135deg, #0d9488, #059669);
+        color: #fff;
+    }
+
+    &__icon {
+        font-size: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        margin-bottom: 16px;
+    }
+
+    &__title {
+        font-size: clamp(1.3rem, 3vw, 1.9rem);
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    &__confidence {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    &__sub {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-bottom: 12px;
+    }
+
+    &__time {
+        font-size: 0.82rem;
+        opacity: 0.65;
+    }
+
+    &__demo {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 4px 14px;
+        border-radius: 50px;
+        background: rgba(0, 0, 0, 0.2);
+        font-size: 0.78rem;
+    }
+}
+
+// ── 主體版面 ──────────────────────────────────────────────────────────────────
+.result-body {
+    //padding-top: 0;
+    .result-columns {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 24px;
+        align-items: start;
+        width: 100%;
+        @include max-lg {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// ── 左欄（sticky）────────────────────────────────────────────────────────────
+.result-left {
+    // 讓左欄本身是普通流，sticky 在內部 div 上
+    flex: 0 0 40%;
+    max-width: 100%;
+    .result-left__sticky {
+        position: sticky;
+        top: 80px; // navbar 高度
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include max-lg {
+            position: static;
+        }
+        // 葉片圖片卡
+        .leaf-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+
+            &__img {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                display: block;
+            }
+
+            &__placeholder {
+                height: 280px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 5rem;
+                background: #e6f4f1;
+            }
+        }
+        // 操作按鈕
+        .leaf-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+
+            &__btn {
+                padding: 11px;
+                border-radius: 10px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                cursor: pointer;
+                border: none;
+                transition: all 0.2s;
+
+                &--primary {
+                    background: #0d9488;
+                    color: #fff;
+                    &:hover {
+                        background: #0a7a70;
+                        transform: translateY(-1px);
+                    }
+                }
+
+                &--outline {
+                    background: transparent;
+                    border: 1.5px solid #0d9488;
+                    color: #0d9488;
+                    &:hover {
+                        background: #e6f4f1;
+                    }
+                }
+
+                &--saved {
+                    border-color: #059669;
+                    color: #059669;
+                    background: #ecfdf5;
+                }
+            }
+        }
+        // 圖片 metadata
+        .leaf-meta {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+
+            &__row {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.82rem;
+                color: #6b7280;
+                padding: 4px 0;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid #f3f4f6;
+                    margin-bottom: 6px;
+                }
+            }
+        }
+    }
+}
+
+// ── 右欄區塊 ──────────────────────────────────────────────────────────────────
+.result-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    .r-section {
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        animation: slideUp 0.4s ease both;
+
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.06}s;
+            }
+        }
+
+        &__title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &__icon {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+// ── 病害資訊 ──────────────────────────────────────────────────────────────────
+.disease-info {
+    &__name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+    }
+    &__pathogen {
+        font-size: 0.88rem;
+        font-style: italic;
+        color: #6b7280;
+        margin-bottom: 18px;
+    }
+}
+
+// 風險等級列
+.risk-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &__label {
+        font-size: 0.85rem;
+        color: #374151;
+        font-weight: 500;
+    }
+
+    &__badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 50px;
+
+        &--high {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        &--mid {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        &--low {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+    }
+}
+
+.risk-bar-track {
+    background: #e5e7eb;
+    border-radius: 50px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.risk-bar-fill {
+    height: 100%;
+    border-radius: 50px;
+    transition: width 1s ease;
+
+    &--disease {
+        background: linear-gradient(90deg, #f87171, #ef4444);
+    }
+    &--healthy {
+        background: linear-gradient(90deg, #34d399, #059669);
+    }
+}
+
+// 症狀匹配度
+.symptom-match {
+    margin-bottom: 12px;
+
+    &__label {
+        font-size: 0.84rem;
+        color: #374151;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    &__bar-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__bar {
+        flex: 1;
+        background: #e5e7eb;
+        border-radius: 50px;
+        height: 8px;
+        overflow: hidden;
+    }
+
+    &__fill {
+        height: 100%;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #0d9488, #2dd4bf);
+        transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__pct {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #0d9488;
+        min-width: 38px;
+        text-align: right;
+    }
+}
+
+// 查看完整按鈕
+.r-link-btn {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    text-align: center;
+    border-radius: 10px;
+    background: #f0f9f6;
+    border: 1.5px solid #0d9488;
+    color: #0d9488;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #0d9488;
+        color: #fff;
+    }
+}
+
+// ── 專家建議 Tab ──────────────────────────────────────────────────────────────
+.expert-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+
+    &__btn {
+        padding: 9px 18px;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        border: 1.5px solid #e5e7eb;
+        background: #fff;
+        color: #6b7280;
+        transition: all 0.2s;
+
+        &--active {
+            background: #0d9488;
+            border-color: #0d9488;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+
+        &:not(&--active):hover {
+            border-color: #0d9488;
+            color: #0d9488;
+        }
+    }
+}
+
+.expert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.9rem;
+        color: #374151;
+        line-height: 1.6;
+    }
+
+    &__num {
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #0d9488;
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.consult-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+    }
+}
+
+// ── 環境條件 ──────────────────────────────────────────────────────────────────
+.env-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.env-card {
+    padding: 16px;
+    border-radius: 12px;
+
+    &--high {
+        background: #fef2f2;
+    }
+    &--mid {
+        background: #fffbeb;
+    }
+    &--low {
+        background: #ecfdf5;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    &__icon {
+        font-size: 1rem;
+    }
+    &__label {
+        font-size: 0.85rem;
+        color: #374151;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    &__risk {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 50px;
+
+        &--high {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        &--mid {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        &--low {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+    }
+
+    &__value {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #111827;
+        line-height: 1;
+        margin-bottom: 4px;
+    }
+
+    &__optimal {
+        font-size: 0.75rem;
+        color: #6b7280;
+    }
+}
+
+.env-warning {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 3px solid #ef4444;
+    background: #fef2f2;
+    font-size: 0.85rem;
+    color: #dc2626;
+    line-height: 1.6;
+}
+
+// ── 相似病例 ──────────────────────────────────────────────────────────────────
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.similar-case {
+    &__img {
+        border-radius: 10px;
+        overflow: hidden;
+        height: 110px;
+        margin-bottom: 10px;
+        background: #e6f4f1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__placeholder {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+    }
+
+    &__name {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 8px;
+    }
+
+    &__bar-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__bar {
+        flex: 1;
+        background: #e5e7eb;
+        border-radius: 50px;
+        height: 6px;
+        overflow: hidden;
+    }
+
+    &__bar-fill {
+        height: 100%;
+        border-radius: 50px;
+        background: linear-gradient(90deg, #0d9488, #2dd4bf);
+        transition: width 1s ease;
+    }
+
+    &__pct {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #0d9488;
+        min-width: 36px;
+    }
+}
+
+// ── 底部操作 ──────────────────────────────────────────────────────────────────
+.result-bottom-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.rba-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &--ghost {
+        background: transparent;
+        border: 1.5px solid #d1d5db;
+        color: #6b7280;
+        &:hover {
+            border-color: #0d9488;
+            color: #0d9488;
+            background: #f0f9f6;
+        }
+    }
+}
+
+// ── 動畫 ──────────────────────────────────────────────────────────────────────
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes barFill {
+    from {
+        width: 0;
+    }
+}

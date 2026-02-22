@@ -1,0 +1,85 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    background-color: rgb(19, 65, 21);
+    .container {
+        padding: 20px 12px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        .header_menu {
+            padding: 0;
+            li {
+                a {
+                    color: $primary;
+                    position: relative;
+                    color: #ffffff;
+                    &::after {
+                        content: ' ';
+                        position: absolute;
+                        right: 50%;
+                        left: 50%;
+                        bottom: -10px;
+                        border-bottom: 4px solid rgb(116, 231, 121);
+                        transition: 0.3s;
+                    }
+                    &:hover::after {
+                        right: 0%;
+                        left: 0%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 漢堡按鈕樣式 */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* Menu 在小螢幕預設隱藏 */
+.header_menu {
+  display: none;
+  flex-direction: column;
+  //background: #fff;
+  position: absolute;
+  top: 60px; /* header高度 */
+  right: 0;
+  width: 200px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header_menu.open {
+  display: flex;
+}
+
+/* 在大螢幕顯示為水平 */
+@media (min-width: 768px) {
+  .header_menu {
+    display: flex !important;
+    //background: #c71d1d;
+    position: static;
+    top: 50px;
+    flex-direction: row;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+  }
+}

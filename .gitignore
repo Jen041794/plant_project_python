@@ -1,0 +1,51 @@
+# ===== 前端 =====
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+
+# ===== 環境變數 =====
+.env
+.env.local
+.env.production
+
+# ===== Kaggle =====
+.kaggle/
+kaggle.json
+
+# ===== Python =====
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# ===== 資料庫 =====
+*.sqlite
+*.sqlite3
+*.db
+
+# ===== 資料集/模型 =====
+*.pkl
+*.h5
+*.pt
+*.pth
+data/
+datasets/
+
+# ===== 系統 =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+# ===== 模型檔案 =====
+*.keras
+backend/checkpoints/
+backend/models/
+
+# ===== 暫存檔 =====
+temp.txt
+*.tmp

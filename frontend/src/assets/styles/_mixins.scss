@@ -1,0 +1,50 @@
+// 1200px 以下
+@mixin max-xl {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// 992px 以下
+@mixin max-lg {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+// 768px 以下
+@mixin max-md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+// 576px 以下
+@mixin max-sm {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+
+
+/*
+使用方式:
+
+.card { 
+    font-size: 18px; 
+    @include max-xl { 
+        font-size: 16px; 
+    } 
+    @include max-lg { 
+        font-size: 15px; 
+    } 
+    @include max-md { 
+        font-size: 14px; 
+    } 
+    @include max-sm { 
+        font-size: 12px; 
+    } 
+}
+
+*/

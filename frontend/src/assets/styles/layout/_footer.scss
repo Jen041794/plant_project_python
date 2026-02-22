@@ -1,0 +1,182 @@
+// Footer.scss
+
+$footer-bg:         #1a8a7a;
+$footer-bg-bottom:  #157a6b;
+$footer-text:       rgba(255, 255, 255, 0.85);
+$footer-muted:      rgba(255, 255, 255, 0.55);
+$footer-border:     rgba(255, 255, 255, 0.15);
+$footer-input-bg:   rgba(255, 255, 255, 0.12);
+$footer-btn-bg:     rgba(255, 255, 255, 0.18);
+
+.footer {
+    background-color: $footer-bg;
+    color: $footer-text;
+    padding-top: 56px;
+    font-size: 0.9rem;
+
+    // ── 上半部 ────────────────────────────────────────────────────────────────
+    &__top {
+        padding-bottom: 40px;
+        row-gap: 36px;
+    }
+
+    // ── 品牌 & 訂閱 ───────────────────────────────────────────────────────────
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        color: $footer-muted;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    &__subscribe {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        @media (min-width: 480px) {
+            flex-direction: row;
+        }
+    }
+
+    &__input {
+        flex: 1;
+        background: $footer-input-bg;
+        border: 1px solid $footer-border;
+        border-radius: 6px;
+        padding: 10px 14px;
+        color: #fff;
+        font-size: 0.875rem;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &::placeholder { color: $footer-muted; }
+        &:focus        { border-color: rgba(255, 255, 255, 0.45); }
+    }
+
+    &__btn {
+        background: $footer-btn-bg;
+        border: 1px solid $footer-border;
+        border-radius: 6px;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+
+        &:hover { background: rgba(255, 255, 255, 0.28); }
+    }
+
+    // ── 欄標題 ────────────────────────────────────────────────────────────────
+    &__col-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 14px;
+
+        &--mt { margin-top: 24px; }
+    }
+
+    // ── 連結列表 ──────────────────────────────────────────────────────────────
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: $footer-muted;
+        }
+
+        a {
+            color: $footer-muted;
+            text-decoration: none;
+            transition: color 0.2s;
+            &:hover { color: #fff; }
+        }
+    }
+
+    &__icon { font-size: 0.85rem; flex-shrink: 0; }
+
+    &__hours {
+        color: $footer-muted;
+        font-size: 0.875rem;
+        margin-bottom: 4px;
+    }
+
+    // ── 分隔線 ────────────────────────────────────────────────────────────────
+    &__divider {
+        border-color: $footer-border;
+        margin: 0;
+    }
+
+    // ── 下半部 ────────────────────────────────────────────────────────────────
+    &__bottom {
+        background-color: $footer-bg-bottom;
+        padding: 16px 0;
+        font-size: 0.8rem;
+        margin-top: 0;
+    }
+
+    &__bottom-row {
+        row-gap: 12px;
+    }
+
+    // ── 社群連結 ──────────────────────────────────────────────────────────────
+    &__social {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        a {
+            color: $footer-muted;
+            text-decoration: none;
+            transition: color 0.2s;
+            &:hover { color: #fff; }
+        }
+    }
+
+    // ── 版權 ──────────────────────────────────────────────────────────────────
+    &__copy {
+        color: $footer-muted;
+        text-align: center;
+    }
+
+    // ── 法律連結 ──────────────────────────────────────────────────────────────
+    &__legal {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+
+        a {
+            color: $footer-muted;
+            text-decoration: none;
+            transition: color 0.2s;
+            &:hover { color: #fff; }
+        }
+
+        span { color: $footer-muted; }
+    }
+
+    // ── RWD 手機版 ────────────────────────────────────────────────────────────
+    @media (max-width: 767px) {
+        &__social,
+        &__legal   { justify-content: center; }
+        &__copy    { order: -1; }
+    }
+}
