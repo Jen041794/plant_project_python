@@ -12,9 +12,10 @@ from pathlib import Path
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # 減少 TF 日誌
 
+
 import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
+import keras
+from keras import layers
 
 # ─── 路徑與超參數 ──────────────────────────────────────────────────────────────
 BASE_DIR       = Path(__file__).parent

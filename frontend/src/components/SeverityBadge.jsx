@@ -466,4 +466,3 @@ export const StatBox1 = ({ value, label, delay = 0 }) => (
     </div>
 );
 
-

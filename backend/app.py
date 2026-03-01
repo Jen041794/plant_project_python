@@ -270,4 +270,8 @@ def predict():
     })
 
 if __name__ == "__main__":
+    # 啟動時預先載入模型
+    get_model()
+    get_class_names()
+    get_diseases_db()
     app.run(debug=True, host="0.0.0.0", port=5000)
