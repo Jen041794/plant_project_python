@@ -27,6 +27,7 @@
 
 ### 🌐 前端使用  
 - HTML / CSS / JavaScript：提供使用者界面，簡單上傳圖片並顯示結果
+- 框架使用: React.js 及 Bootstrap5
 - 與後端 API 透過 AJAX / Fetch API 進行互動
 
 ---
