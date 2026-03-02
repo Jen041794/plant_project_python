@@ -1,0 +1,1564 @@
+{
+  "diseases": [
+    {
+      "id": "apple_scab",
+      "name_zh": "蘋果黑星病",
+      "name_en": "Apple Scab",
+      "pathogen": "Venturia inaequalis",
+      "category": "真菌性病害",
+      "host_plants": [
+        "蘋果",
+        "梨",
+        "山楂"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "全球蘋果種植區，溫帶海洋性氣候最普遍",
+      "symptoms": [
+        "葉片出現橄欖綠至黑色天鵝絨狀病斑",
+        "葉背病斑較葉面更明顯",
+        "嚴重感染導致葉片扭曲、早期落葉",
+        "果實表面出現黑色龜裂硬化病斑"
+      ],
+      "causes": [
+        "病菌以子囊殼在落葉中越冬，春季釋放子囊孢子",
+        "春雨期為初次感染的關鍵期",
+        "品種感病性差異極大"
+      ],
+      "prevention": [
+        "秋冬落葉後清除並銷毀",
+        "選植抗黑星病品種",
+        "合理修剪，改善果園通風透光"
+      ],
+      "treatment": [
+        "苯菌靈 50% WP 800 倍液",
+        "腈菌唑 12% EC 1500 倍液",
+        "代森錳鋅 75% WP 600 倍液"
+      ],
+      "expert_advice": "蘋果黑星病防治的核心是抓住春季感染期，利用病害預警系統計算感染值，做到精準噴藥。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Apple_scab_les%C3%ADon.jpg/320px-Apple_scab_les%C3%ADon.jpg",
+          "caption": "蘋果黑星病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Apple___Apple_scab"
+    },
+    {
+      "id": "apple_black_rot",
+      "name_zh": "蘋果黑腐病",
+      "name_en": "Apple Black Rot",
+      "pathogen": "Botryosphaeria obtusa",
+      "category": "真菌性病害",
+      "host_plants": [
+        "蘋果",
+        "梨"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "北美、歐洲及亞洲蘋果產區",
+      "symptoms": [
+        "果實出現褐色腐爛，逐漸變黑",
+        "葉片出現紫色小斑點，後擴大為褐色",
+        "枝條出現潰瘍病斑"
+      ],
+      "causes": [
+        "病菌在病枝和木乃伊果中越冬",
+        "溫暖潮濕環境促進孢子釋放",
+        "傷口是主要入侵途徑"
+      ],
+      "prevention": [
+        "冬季清除病枝和木乃伊果",
+        "修剪後塗抹保護劑",
+        "合理施肥避免徒長"
+      ],
+      "treatment": [
+        "甲基多保淨 70% WP 1000 倍液",
+        "克氯苯 50% WP 800 倍液",
+        "腈菌唑 12% EC 1500 倍液"
+      ],
+      "expert_advice": "黑腐病防治重點在於清除越冬菌源，結合保護性噴藥效果最佳。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Black_rot_apple.jpg/320px-Black_rot_apple.jpg",
+          "caption": "蘋果黑腐病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Apple___Black_rot"
+    },
+    {
+      "id": "apple_cedar_rust",
+      "name_zh": "蘋果銹病",
+      "name_en": "Apple Cedar Rust",
+      "pathogen": "Gymnosporangium juniperi-virginianae",
+      "category": "真菌性病害",
+      "host_plants": [
+        "蘋果",
+        "雪松",
+        "檜木"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "北美東部地區，需要蘋果與雪松兩種寄主",
+      "symptoms": [
+        "葉片正面出現橙黃色病斑",
+        "病斑背面長出管狀孢子器",
+        "嚴重時導致早期落葉"
+      ],
+      "causes": [
+        "病菌需要在蘋果和雪松間交替寄生完成生活史",
+        "春季多雨促進孢子傳播",
+        "果園附近有雪松時風險增加"
+      ],
+      "prevention": [
+        "移除果園附近的雪松或檜木",
+        "選用抗銹病品種",
+        "春季萌芽期開始預防噴藥"
+      ],
+      "treatment": [
+        "三唑類殺菌劑噴施",
+        "代森錳鋅保護性噴藥",
+        "發病初期每 10 天噴施一次"
+      ],
+      "expert_advice": "根本解決方法是移除附近的雪松寄主，切斷病菌生活史。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Cedar_apple_rust.jpg/320px-Cedar_apple_rust.jpg",
+          "caption": "蘋果銹病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Apple___Cedar_apple_rust"
+    },
+    {
+      "id": "apple_healthy",
+      "name_zh": "蘋果（健康）",
+      "name_en": "Apple Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "蘋果"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色鮮綠均勻",
+        "葉形正常無扭曲",
+        "無病斑或異常紋路"
+      ],
+      "causes": [
+        "良好農業管理",
+        "適當水肥供應"
+      ],
+      "prevention": [
+        "持續定期巡視",
+        "維持合理水肥管理"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/320px-Red_Apple.jpg",
+          "caption": "蘋果（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Apple___healthy"
+    },
+    {
+      "id": "blueberry_healthy",
+      "name_zh": "藍莓（健康）",
+      "name_en": "Blueberry Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "藍莓"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠有光澤",
+        "生長勢良好"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Blueberries_8980.jpg/320px-Blueberries_8980.jpg",
+          "caption": "藍莓（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Blueberry___healthy"
+    },
+    {
+      "id": "cherry_powdery_mildew",
+      "name_zh": "櫻桃白粉病",
+      "name_en": "Cherry Powdery Mildew",
+      "pathogen": "Podosphaera clandestina",
+      "category": "真菌性病害",
+      "host_plants": [
+        "甜櫻桃",
+        "酸櫻桃"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球櫻桃產區",
+      "symptoms": [
+        "葉片表面出現白色粉狀覆蓋物",
+        "新葉捲曲變形",
+        "嚴重時葉片乾枯脫落"
+      ],
+      "causes": [
+        "乾燥溫暖環境（20-25°C）最易發病",
+        "密植通風不良加速蔓延",
+        "氮肥過多使葉片嫩弱"
+      ],
+      "prevention": [
+        "合理修剪改善通風",
+        "避免過量施用氮肥",
+        "選用抗病品種"
+      ],
+      "treatment": [
+        "硫磺製劑 800 倍液",
+        "三唑類殺菌劑噴施",
+        "碳酸氫鉀水溶液"
+      ],
+      "expert_advice": "白粉病在乾燥條件下快速蔓延，需在初發期立即噴藥。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Podosphaera_pannosa_on_Rosa.jpg/320px-Podosphaera_pannosa_on_Rosa.jpg",
+          "caption": "櫻桃白粉病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Cherry_(including_sour)___Powdery_mildew"
+    },
+    {
+      "id": "cherry_healthy",
+      "name_zh": "櫻桃（健康）",
+      "name_en": "Cherry Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "櫻桃"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色鮮綠均勻",
+        "生長勢良好"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Cherry_Stella444.jpg/320px-Cherry_Stella444.jpg",
+          "caption": "櫻桃（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Cherry_(including_sour)___healthy"
+    },
+    {
+      "id": "corn_gray_leaf_spot",
+      "name_zh": "玉米灰葉斑病",
+      "name_en": "Corn Gray Leaf Spot",
+      "pathogen": "Cercospora zeae-maydis",
+      "category": "真菌性病害",
+      "host_plants": [
+        "玉米"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "北美、東非、亞洲熱帶及亞熱帶地區",
+      "symptoms": [
+        "葉片出現長方形灰棕色病斑",
+        "病斑受葉脈限制呈矩形",
+        "嚴重時多個病斑連合大面積葉枯"
+      ],
+      "causes": [
+        "病菌以菌絲在前一季玉米殘株上越冬",
+        "溫度 25-30°C、夜間有露水時孢子大量釋放",
+        "免耕農法使地表殘株保留增加菌源"
+      ],
+      "prevention": [
+        "種植具抗性的雜交種",
+        "實施輪作",
+        "秋季翻耕殘株"
+      ],
+      "treatment": [
+        "丙環唑 25% EC 500 倍液",
+        "吡唑醚菌酯 250g/L EC 1500 倍液",
+        "大喇叭口期至抽穗期重點防治"
+      ],
+      "expert_advice": "品種抗性是最具成本效益的防治手段，選購種子時應索取抗病性評分資料。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Cercospora_zeae-maydis_on_corn.jpg/320px-Cercospora_zeae-maydis_on_corn.jpg",
+          "caption": "玉米灰葉斑病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot"
+    },
+    {
+      "id": "corn_common_rust",
+      "name_zh": "玉米普通銹病",
+      "name_en": "Corn Common Rust",
+      "pathogen": "Puccinia sorghi",
+      "category": "真菌性病害",
+      "host_plants": [
+        "玉米"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球玉米種植區",
+      "symptoms": [
+        "葉片兩面出現橙褐色卵圓形膿皰",
+        "膿皰破裂散出鐵銹色粉末（夏孢子）",
+        "嚴重時葉片提早枯死"
+      ],
+      "causes": [
+        "低溫（16-23°C）高濕有利發病",
+        "夏孢子隨氣流遠距離傳播",
+        "感病自交系品種風險高"
+      ],
+      "prevention": [
+        "選用抗銹病品種",
+        "適時早播避開發病高峰",
+        "合理密植保持通風"
+      ],
+      "treatment": [
+        "三唑酮 25% WP 1500 倍液",
+        "烯唑醇 12.5% WP 2000 倍液",
+        "發病初期噴施"
+      ],
+      "expert_advice": "玉米普通銹病透過氣流傳播，單靠化學防治效果有限，抗病品種是根本對策。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Puccinia_sorghi_on_Zea_mays.jpg/320px-Puccinia_sorghi_on_Zea_mays.jpg",
+          "caption": "玉米普通銹病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Corn_(maize)___Common_rust_"
+    },
+    {
+      "id": "corn_northern_blight",
+      "name_zh": "玉米北方葉枯病",
+      "name_en": "Corn Northern Leaf Blight",
+      "pathogen": "Setosphaeria turcica",
+      "category": "真菌性病害",
+      "host_plants": [
+        "玉米"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "北美、非洲、亞洲玉米產區",
+      "symptoms": [
+        "葉片出現長梭形灰綠色至褐色大型病斑",
+        "病斑長 5-15 cm，寬 1-4 cm",
+        "嚴重時葉片大面積枯死"
+      ],
+      "causes": [
+        "病菌以子囊殼在病殘體中越冬",
+        "涼爽潮濕氣候（18-27°C）最利發病",
+        "連作地塊病害加重"
+      ],
+      "prevention": [
+        "種植抗病品種",
+        "實施輪作減少菌源",
+        "深翻土壤促進病殘體分解"
+      ],
+      "treatment": [
+        "苯醚甲環唑 10% WG 1500 倍液",
+        "丙環唑 25% EC 800 倍液",
+        "抽穗前重點防治"
+      ],
+      "expert_advice": "北方葉枯病在大喇叭口期至抽穗期為防治關鍵期，此時噴藥效果最佳。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Turcicum_blight_lesions.jpg/320px-Turcicum_blight_lesions.jpg",
+          "caption": "玉米北方葉枯病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Corn_(maize)___Northern_Leaf_Blight"
+    },
+    {
+      "id": "corn_healthy",
+      "name_zh": "玉米（健康）",
+      "name_en": "Corn Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "玉米"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色濃綠均勻",
+        "植株挺立生長勢強"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Zea_mays_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-283.jpg/320px-Zea_mays_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-283.jpg",
+          "caption": "玉米（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Corn_(maize)___healthy"
+    },
+    {
+      "id": "grape_black_rot",
+      "name_zh": "葡萄黑腐病",
+      "name_en": "Grape Black Rot",
+      "pathogen": "Guignardia bidwellii",
+      "category": "真菌性病害",
+      "host_plants": [
+        "葡萄"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "北美東部、歐洲、亞洲葡萄產區",
+      "symptoms": [
+        "葉片出現淡褐色圓形至不規則形病斑",
+        "病斑上出現黑色小粒點",
+        "果實迅速變褐皺縮最終變成黑色木乃伊果"
+      ],
+      "causes": [
+        "病菌以菌核在木乃伊果和病梢中越冬",
+        "春季氣溫 7-32°C 配合雨露時孢子大量釋放",
+        "坐果後 2-5 週果實最易感病"
+      ],
+      "prevention": [
+        "冬季清除木乃伊果和病殘枝",
+        "採 V 型整枝提高通風透光",
+        "使用防雨設施栽培"
+      ],
+      "treatment": [
+        "甲基多保淨 70% WP 1000 倍液",
+        "克氯苯 50% WP 800 倍液",
+        "從萌芽期開始每 10-14 天噴施"
+      ],
+      "expert_advice": "黑腐病最關鍵的防治時機是花前到幼果期，錯過此關鍵期後防治效果大幅降低。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Grapeblackrot.jpg/320px-Grapeblackrot.jpg",
+          "caption": "葡萄黑腐病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Grape___Black_rot"
+    },
+    {
+      "id": "grape_esca",
+      "name_zh": "葡萄黑麻疹病",
+      "name_en": "Grape Esca (Black Measles)",
+      "pathogen": "Phaeomoniella chlamydospora",
+      "category": "真菌性病害",
+      "host_plants": [
+        "葡萄"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "全球葡萄產區，老藤葡萄園最普遍",
+      "symptoms": [
+        "葉片出現虎斑狀黃化（黃綠相間）",
+        "果實出現黑色小斑點（黑麻疹狀）",
+        "莖部木質部出現黑色條紋",
+        "嚴重時植株急性枯死"
+      ],
+      "causes": [
+        "病菌從修剪傷口入侵",
+        "老齡植株抵抗力弱更易感病",
+        "高溫乾旱後突然降雨誘發急性症狀"
+      ],
+      "prevention": [
+        "修剪後立即塗抹保護劑",
+        "避免在雨天修剪",
+        "汰換老藤更新植株"
+      ],
+      "treatment": [
+        "目前無有效化學治療方法",
+        "切除感病枝條並塗抹傷口保護劑",
+        "採預防性管理為主"
+      ],
+      "expert_advice": "艾斯卡病目前無特效藥，預防重於治療，修剪傷口保護是關鍵措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Esca_on_grapevine.jpg/320px-Esca_on_grapevine.jpg",
+          "caption": "葡萄黑麻疹病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Grape___Esca_(Black_Measles)"
+    },
+    {
+      "id": "grape_leaf_blight",
+      "name_zh": "葡萄葉枯病",
+      "name_en": "Grape Leaf Blight",
+      "pathogen": "Isariopsis clavispora",
+      "category": "真菌性病害",
+      "host_plants": [
+        "葡萄"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "亞洲及部分歐洲葡萄產區",
+      "symptoms": [
+        "葉片出現不規則褐色壞疽斑",
+        "病斑周圍有黃色暈圈",
+        "嚴重時葉片早期脫落"
+      ],
+      "causes": [
+        "高溫多濕環境促進發病",
+        "密植通風不良加速蔓延",
+        "植株生長衰弱時易感病"
+      ],
+      "prevention": [
+        "合理整枝改善通風",
+        "避免積水保持排水良好",
+        "增施鉀肥增強抗病力"
+      ],
+      "treatment": [
+        "代森錳鋅 75% WP 600 倍液",
+        "苯醚甲環唑 10% WG 1500 倍液",
+        "發病初期每 7-10 天噴施"
+      ],
+      "expert_advice": "葉枯病在台灣夏季高溫多濕期間最易爆發，需在梅雨季前建立保護性噴藥計畫。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Grape_leaf_blight.jpg/320px-Grape_leaf_blight.jpg",
+          "caption": "葡萄葉枯病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)"
+    },
+    {
+      "id": "grape_healthy",
+      "name_zh": "葡萄（健康）",
+      "name_en": "Grape Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "葡萄"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠有光澤",
+        "葉形正常無病斑"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wine_grapes03.jpg/320px-Wine_grapes03.jpg",
+          "caption": "葡萄（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Grape___healthy"
+    },
+    {
+      "id": "orange_huanglongbing",
+      "name_zh": "柑橘黃龍病",
+      "name_en": "Orange Huanglongbing (Citrus Greening)",
+      "pathogen": "Candidatus Liberibacter asiaticus",
+      "category": "細菌性病害",
+      "host_plants": [
+        "柳橙",
+        "柑橘",
+        "檸檬",
+        "葡萄柚"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "亞洲、非洲、美洲柑橘產區，台灣已列為重要防疫對象",
+      "symptoms": [
+        "葉片出現不對稱黃化（黃龍狀）",
+        "果實發育不良，著色異常",
+        "根系腐爛植株逐漸衰亡",
+        "目前無法治癒"
+      ],
+      "causes": [
+        "由柑橘木蝨傳播細菌",
+        "嫁接帶病接穗傳播",
+        "病株無法治癒只能拔除"
+      ],
+      "prevention": [
+        "嚴格防治柑橘木蝨",
+        "使用無毒認證苗木",
+        "發現病株立即拔除銷毀"
+      ],
+      "treatment": [
+        "目前無有效治療方法",
+        "發現即拔除病株",
+        "加強木蝨防治阻斷傳播"
+      ],
+      "expert_advice": "黃龍病是柑橘最毀滅性病害，一旦確診必須立即拔除，以保護周邊健康植株。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Huanglongbing_on_citrus.jpg/320px-Huanglongbing_on_citrus.jpg",
+          "caption": "柑橘黃龍病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Orange___Haunglongbing_(Citrus_greening)"
+    },
+    {
+      "id": "peach_bacterial_spot",
+      "name_zh": "桃細菌性穿孔病",
+      "name_en": "Peach Bacterial Spot",
+      "pathogen": "Xanthomonas arboricola pv. pruni",
+      "category": "細菌性病害",
+      "host_plants": [
+        "桃",
+        "李",
+        "杏",
+        "梅",
+        "櫻桃"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球核果類種植區",
+      "symptoms": [
+        "葉片出現水浸狀小斑點後轉為褐色",
+        "病斑脫落形成穿孔葉片似彈孔狀",
+        "果實出現深褐色龜裂病斑"
+      ],
+      "causes": [
+        "細菌在枝條潰瘍部位越冬",
+        "春季溫暖多雨時雨水傳播細菌",
+        "傷口和氣孔是入侵途徑"
+      ],
+      "prevention": [
+        "選用抗病品種",
+        "冬季修除病枝塗抹保護劑",
+        "設立防風設施減少風雨傷害"
+      ],
+      "treatment": [
+        "氫氧化銅 77% WP 800 倍液",
+        "春季萌芽前噴施石灰硫磺合劑",
+        "鏈黴素 200 ppm（注意抗藥性）"
+      ],
+      "expert_advice": "防治關鍵在春季萌芽前的清園工作，建議輪換不同類型殺菌劑延緩抗藥性。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Bacterial_spot_peach.jpg/320px-Bacterial_spot_peach.jpg",
+          "caption": "桃細菌性穿孔病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Peach___Bacterial_spot"
+    },
+    {
+      "id": "peach_healthy",
+      "name_zh": "桃（健康）",
+      "name_en": "Peach Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "桃"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色鮮綠均勻",
+        "生長勢良好無異常"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Autumn_Red_Peaches.jpg/320px-Autumn_Red_Peaches.jpg",
+          "caption": "桃（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Peach___healthy"
+    },
+    {
+      "id": "pepper_bacterial_spot",
+      "name_zh": "甜椒細菌性斑點病",
+      "name_en": "Pepper Bacterial Spot",
+      "pathogen": "Xanthomonas campestris pv. vesicatoria",
+      "category": "細菌性病害",
+      "host_plants": [
+        "甜椒",
+        "辣椒",
+        "番茄"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球辣椒產區，熱帶及亞熱帶地區最普遍",
+      "symptoms": [
+        "葉片出現水浸狀小斑點，後轉為褐色壞疽",
+        "病斑周圍有黃色暈圈",
+        "果實出現隆起的瘡痂狀病斑"
+      ],
+      "causes": [
+        "細菌在種子和病殘體中存活",
+        "高溫（27-30°C）多濕環境最易發病",
+        "雨水和農事操作傳播"
+      ],
+      "prevention": [
+        "使用無病種子或種子消毒處理",
+        "避免連作與茄科作物輪作",
+        "減少葉面積水"
+      ],
+      "treatment": [
+        "氫氧化銅 77% WP 800 倍液",
+        "農用鏈黴素 200 ppm",
+        "發病初期每 7 天噴施一次"
+      ],
+      "expert_advice": "種子帶菌是初次感染的主要來源，使用認證無病種子是最有效的預防措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Xanthomonas_on_pepper.jpg/320px-Xanthomonas_on_pepper.jpg",
+          "caption": "甜椒細菌性斑點病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Pepper,_bell___Bacterial_spot"
+    },
+    {
+      "id": "pepper_healthy",
+      "name_zh": "甜椒（健康）",
+      "name_en": "Pepper Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "甜椒"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠有光澤",
+        "植株生長整齊均勻"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Capsicum_annuum_fruits.jpg/320px-Capsicum_annuum_fruits.jpg",
+          "caption": "甜椒（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Pepper,_bell___healthy"
+    },
+    {
+      "id": "potato_early_blight",
+      "name_zh": "馬鈴薯早疫病",
+      "name_en": "Potato Early Blight",
+      "pathogen": "Alternaria solani",
+      "category": "真菌性病害",
+      "host_plants": [
+        "馬鈴薯",
+        "番茄"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球馬鈴薯產區",
+      "symptoms": [
+        "葉片出現同心圓狀褐色病斑（靶心斑）",
+        "病斑周圍有黃色氯化圈",
+        "由成熟老葉開始逐漸向幼嫩葉蔓延"
+      ],
+      "causes": [
+        "病菌以分生孢子在土壤及病殘體中越冬",
+        "植株長勢弱時最易感病",
+        "溫暖（24-29°C）潮濕環境促進發病"
+      ],
+      "prevention": [
+        "選用無病種薯",
+        "平衡施肥特別注意鉀肥補充",
+        "輪作與十字花科禾本科輪換"
+      ],
+      "treatment": [
+        "嘧菌酯 25% SC 1000 倍液",
+        "代森錳鋅 75% WP 600 倍液",
+        "每 7-10 天噴施一次連施 3-4 次"
+      ],
+      "expert_advice": "馬鈴薯早疫病常在植株生育後期爆發，應在開花初期即開始保護性施藥。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Alternaria_solani_potato.jpg/320px-Alternaria_solani_potato.jpg",
+          "caption": "馬鈴薯早疫病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Potato___Early_blight"
+    },
+    {
+      "id": "potato_late_blight",
+      "name_zh": "馬鈴薯晚疫病",
+      "name_en": "Potato Late Blight",
+      "pathogen": "Phytophthora infestans",
+      "category": "卵菌性病害",
+      "host_plants": [
+        "馬鈴薯",
+        "番茄"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "全球性，台灣高山冷涼地區秋冬多發",
+      "symptoms": [
+        "葉片出現不規則水浸狀灰綠色病斑",
+        "潮濕時病斑背面出現白色霜狀黴層",
+        "病斑擴展迅速 48 小時內可蔓延整片葉"
+      ],
+      "causes": [
+        "低溫（10-25°C）配合高濕度是主要誘發條件",
+        "病菌卵孢子可在土壤中存活多年",
+        "雨水和氣流傳播孢子囊傳播速度極快"
+      ],
+      "prevention": [
+        "使用認證無病種苗",
+        "高畦栽培確保良好排水",
+        "田間巡視頻率提高至每 2 天一次"
+      ],
+      "treatment": [
+        "甲霜靈 25% WP 800 倍液",
+        "烯醯嗎啉 50% WP 1000 倍液",
+        "交替使用不同作用機制藥劑"
+      ],
+      "expert_advice": "晚疫病具有爆炸性蔓延特性，一旦發現疑似病例立即對全田施藥並通知鄰近農場。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Potato_blight.jpg/320px-Potato_blight.jpg",
+          "caption": "馬鈴薯晚疫病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Potato___Late_blight"
+    },
+    {
+      "id": "potato_healthy",
+      "name_zh": "馬鈴薯（健康）",
+      "name_en": "Potato Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "馬鈴薯"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠均勻",
+        "植株生長勢強"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Potato_and_cross_section.jpg/320px-Potato_and_cross_section.jpg",
+          "caption": "馬鈴薯（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Potato___healthy"
+    },
+    {
+      "id": "raspberry_healthy",
+      "name_zh": "覆盆子（健康）",
+      "name_en": "Raspberry Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "覆盆子"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色鮮綠均勻",
+        "生長勢良好"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raspberry_-_whole_%28Rubus_idaeus%29.jpg/320px-Raspberry_-_whole_%28Rubus_idaeus%29.jpg",
+          "caption": "覆盆子（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Raspberry___healthy"
+    },
+    {
+      "id": "soybean_healthy",
+      "name_zh": "大豆（健康）",
+      "name_en": "Soybean Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "大豆"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠均勻",
+        "植株生長整齊"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Soybeanvarieties.jpg/320px-Soybeanvarieties.jpg",
+          "caption": "大豆（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Soybean___healthy"
+    },
+    {
+      "id": "squash_powdery_mildew",
+      "name_zh": "南瓜白粉病",
+      "name_en": "Squash Powdery Mildew",
+      "pathogen": "Podosphaera xanthii",
+      "category": "真菌性病害",
+      "host_plants": [
+        "南瓜",
+        "瓜類",
+        "葫蘆科作物"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球瓜類種植區",
+      "symptoms": [
+        "葉片表面出現白色粉狀覆蓋物",
+        "初期為小圓形白斑後擴大連片",
+        "嚴重時葉片黃化乾枯"
+      ],
+      "causes": [
+        "乾燥溫暖環境（20-28°C）最易發病",
+        "高低溫交替促進孢子萌發",
+        "植株過密通風不良"
+      ],
+      "prevention": [
+        "合理株距保持通風",
+        "避免過量施用氮肥",
+        "選用抗病品種"
+      ],
+      "treatment": [
+        "硫磺懸浮劑 500 倍液",
+        "三唑酮 25% WP 2000 倍液",
+        "發病初期每 7-10 天噴施"
+      ],
+      "expert_advice": "白粉病孢子耐乾旱，不需高濕即可萌發，乾熱天氣反而有利發病，需特別注意。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Podosphaera_pannosa_on_Rosa.jpg/320px-Podosphaera_pannosa_on_Rosa.jpg",
+          "caption": "南瓜白粉病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Squash___Powdery_mildew"
+    },
+    {
+      "id": "strawberry_leaf_scorch",
+      "name_zh": "草莓葉焦病",
+      "name_en": "Strawberry Leaf Scorch",
+      "pathogen": "Diplocarpon earlianum",
+      "category": "真菌性病害",
+      "host_plants": [
+        "草莓"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球草莓產區，台灣苗栗大湖、台中東勢草莓種植區",
+      "symptoms": [
+        "葉片出現不規則形紫紅色至褐色小斑點",
+        "病斑中央灰白色邊緣深褐色",
+        "嚴重時病斑連合葉緣焦枯"
+      ],
+      "causes": [
+        "病菌以子囊殼在病葉上越冬",
+        "春季溫暖多雨時孢子大量釋放",
+        "密植通風不良的溫室栽培環境高發"
+      ],
+      "prevention": [
+        "選用抗病品種",
+        "適當疏葉保持通風",
+        "定期清除老葉及病葉"
+      ],
+      "treatment": [
+        "嘧菌酯 25% SC 1500 倍液",
+        "氟硅唑 40% EC 5000 倍液",
+        "發病初期每 7-10 天噴施一次"
+      ],
+      "expert_advice": "草莓葉焦病在台灣設施草莓栽培中普遍發生，定植後 2-3 週即應開始預防性噴藥。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Strawberry_leaf_scorch.jpg/320px-Strawberry_leaf_scorch.jpg",
+          "caption": "草莓葉焦病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Strawberry___Leaf_scorch"
+    },
+    {
+      "id": "strawberry_healthy",
+      "name_zh": "草莓（健康）",
+      "name_en": "Strawberry Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "草莓"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色鮮綠均勻",
+        "生長勢良好果實發育正常"
+      ],
+      "causes": [
+        "良好農業管理"
+      ],
+      "prevention": [
+        "定期巡視田間"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/PerfectStrawberry.jpg/320px-PerfectStrawberry.jpg",
+          "caption": "草莓（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Strawberry___healthy"
+    },
+    {
+      "id": "tomato_bacterial_spot",
+      "name_zh": "番茄細菌性斑點病",
+      "name_en": "Tomato Bacterial Spot",
+      "pathogen": "Xanthomonas vesicatoria",
+      "category": "細菌性病害",
+      "host_plants": [
+        "番茄",
+        "甜椒"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球番茄產區",
+      "symptoms": [
+        "葉片出現水浸狀小斑點後轉為褐色",
+        "病斑周圍有黃色暈圈",
+        "果實出現隆起黑色小斑點"
+      ],
+      "causes": [
+        "細菌在種子和病殘體中存活",
+        "溫暖多雨天氣促進蔓延",
+        "雨水飛濺傳播病菌"
+      ],
+      "prevention": [
+        "使用無病種子",
+        "避免頭頂灌溉",
+        "與非茄科作物輪作"
+      ],
+      "treatment": [
+        "氫氧化銅 77% WP 800 倍液",
+        "農用鏈黴素 200 ppm",
+        "發病初期每 7 天噴施"
+      ],
+      "expert_advice": "細菌性斑點病在多雨季節爆發迅速，需在降雨前後各噴藥一次加強保護。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Xanthomonas_on_pepper.jpg/320px-Xanthomonas_on_pepper.jpg",
+          "caption": "番茄細菌性斑點病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Bacterial_spot"
+    },
+    {
+      "id": "tomato_early_blight",
+      "name_zh": "番茄早疫病",
+      "name_en": "Tomato Early Blight",
+      "pathogen": "Alternaria solani",
+      "category": "真菌性病害",
+      "host_plants": [
+        "番茄",
+        "馬鈴薯"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球性，溫暖潮濕地區最普遍",
+      "symptoms": [
+        "葉片出現同心圓狀褐色病斑（靶心狀）",
+        "病斑直徑 0.5-1.5 cm 周圍有黃色暈圈",
+        "由植株下方老葉開始發病逐漸向上蔓延",
+        "嚴重時葉片變黃乾枯脫落"
+      ],
+      "causes": [
+        "病菌以菌絲或分生孢子在土壤中的病殘體越冬",
+        "氣溫 24-29°C 配合高濕度最易發病",
+        "連作茄科作物使土壤帶菌量累積",
+        "植株生長衰弱氮肥不足時更易感病"
+      ],
+      "prevention": [
+        "選用抗病品種",
+        "實施 3 年以上輪作避免連作茄科",
+        "保持適當株距改善通風",
+        "採滴灌方式避免葉面積水"
+      ],
+      "treatment": [
+        "代森錳鋅 75% WP 500 倍液每 7 天噴一次",
+        "亞托敏 25% SC 1000 倍液",
+        "克凡派 75% WP 600 倍液"
+      ],
+      "expert_advice": "早疫病建議採取預防優先策略，在花期前即開始保護性噴藥，並搭配有機硅助劑提升展著性。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Alternaria_solani_on_tomato.jpg/320px-Alternaria_solani_on_tomato.jpg",
+          "caption": "番茄早疫病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Early_blight"
+    },
+    {
+      "id": "tomato_late_blight",
+      "name_zh": "番茄晚疫病",
+      "name_en": "Tomato Late Blight",
+      "pathogen": "Phytophthora infestans",
+      "category": "卵菌性病害",
+      "host_plants": [
+        "番茄",
+        "馬鈴薯"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "全球性，台灣高山冷涼地區秋冬多發",
+      "symptoms": [
+        "葉片出現不規則水浸狀灰綠色病斑",
+        "潮濕時病斑背面出現白色霜狀黴層",
+        "病斑擴展迅速 48 小時內可蔓延整片葉",
+        "莖部出現黑褐色條狀病斑植株迅速萎凋"
+      ],
+      "causes": [
+        "低溫（10-25°C）配合高濕度是主要誘發條件",
+        "病菌卵孢子可在土壤中存活多年",
+        "雨水和氣流傳播孢子囊傳播速度極快"
+      ],
+      "prevention": [
+        "使用認證無病種苗",
+        "選植含抗性基因品種",
+        "高畦栽培確保良好排水",
+        "田間巡視頻率提高至每 2 天一次"
+      ],
+      "treatment": [
+        "甲霜靈 25% WP 800 倍液",
+        "烯醯嗎啉 50% WP 1000 倍液",
+        "波爾多液 1:1:100（銅製劑保護性）"
+      ],
+      "expert_advice": "晚疫病具有爆炸性蔓延特性，在適宜條件下 3-5 天可毀滅整個田區，發現立即全田施藥。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Potato_blight.jpg/320px-Potato_blight.jpg",
+          "caption": "番茄晚疫病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Late_blight"
+    },
+    {
+      "id": "tomato_leaf_mold",
+      "name_zh": "番茄葉黴病",
+      "name_en": "Tomato Leaf Mold",
+      "pathogen": "Passalora fulva",
+      "category": "真菌性病害",
+      "host_plants": [
+        "番茄"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球番茄產區，設施栽培最普遍",
+      "symptoms": [
+        "葉片正面出現淡黃色病斑",
+        "葉背出現橄欖褐色至灰色絨狀黴層",
+        "嚴重時葉片捲縮枯死"
+      ],
+      "causes": [
+        "高濕度（>85% RH）密閉溫室最易發病",
+        "氣溫 22-25°C 孢子萌發最快",
+        "通風不良溫室栽培高風險"
+      ],
+      "prevention": [
+        "設施栽培加強通風降低濕度",
+        "合理株距改善透光",
+        "選用抗病品種"
+      ],
+      "treatment": [
+        "嘧菌酯 25% SC 1000 倍液",
+        "苯醚甲環唑 10% WG 1500 倍液",
+        "腐黴利 50% WP 1000 倍液"
+      ],
+      "expert_advice": "葉黴病是設施番茄的主要病害，濕度控制是最重要的預防措施，目標維持相對濕度低於 85%。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tomato_leaf_mold.jpg/320px-Tomato_leaf_mold.jpg",
+          "caption": "番茄葉黴病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Leaf_Mold"
+    },
+    {
+      "id": "tomato_septoria_leaf_spot",
+      "name_zh": "番茄斑點病",
+      "name_en": "Tomato Septoria Leaf Spot",
+      "pathogen": "Septoria lycopersici",
+      "category": "真菌性病害",
+      "host_plants": [
+        "番茄"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球番茄產區，潮濕地區最普遍",
+      "symptoms": [
+        "葉片出現小圓形病斑（直徑 3-6 mm）",
+        "病斑中央灰白色邊緣深褐色",
+        "病斑中央有黑色小點（柄子殼）",
+        "由植株下方葉片向上蔓延"
+      ],
+      "causes": [
+        "病菌在病殘體和雜草上越冬越夏",
+        "溫暖潮濕（20-25°C）最易發病",
+        "雨水飛濺傳播分生孢子"
+      ],
+      "prevention": [
+        "清除田間病殘體",
+        "採用支架栽培減少葉片接觸土壤",
+        "輪作 2-3 年"
+      ],
+      "treatment": [
+        "代森錳鋅 75% WP 600 倍液",
+        "克凡派 75% WP 800 倍液",
+        "苯醚甲環唑 10% WG 1500 倍液"
+      ],
+      "expert_advice": "斑點病從下位葉開始，定期摘除下位病葉可有效減緩病害蔓延速度。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Septoria_leaf_spot_tomato.jpg/320px-Septoria_leaf_spot_tomato.jpg",
+          "caption": "番茄斑點病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Septoria_leaf_spot"
+    },
+    {
+      "id": "tomato_spider_mites",
+      "name_zh": "番茄二斑葉蟎",
+      "name_en": "Tomato Spider Mites",
+      "pathogen": "Tetranychus urticae",
+      "category": "害蟲危害",
+      "host_plants": [
+        "番茄",
+        "草莓",
+        "瓜類",
+        "豆類"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球性，乾熱環境最普遍",
+      "symptoms": [
+        "葉片出現細小白色或黃色斑點（葉蟎刺吸痕）",
+        "嚴重時葉片呈銅褐色乾枯",
+        "葉背可見細小蜘蛛網和蟲體",
+        "植株生長遲緩產量下降"
+      ],
+      "causes": [
+        "高溫乾燥（28-35°C 低濕）最利繁殖",
+        "單一殺蟲劑長期使用導致抗藥性",
+        "天敵（捕食性蟎）減少時數量爆發"
+      ],
+      "prevention": [
+        "保持適當濕度抑制葉蟎繁殖",
+        "保護天敵不使用廣效性殺蟲劑",
+        "定期葉背檢查及早發現"
+      ],
+      "treatment": [
+        "阿巴汀 1.8% EC 2000 倍液",
+        "畢芬寧 10% EC 2000 倍液",
+        "釋放智利捕植蟎進行生物防治"
+      ],
+      "expert_advice": "葉蟎極易產生抗藥性，應輪換不同作用機制的殺蟎劑，並積極利用生物防治。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tetranychus_urticae_with_silk_threads.jpg/320px-Tetranychus_urticae_with_silk_threads.jpg",
+          "caption": "番茄二斑葉蟎",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Spider_mites Two-spotted_spider_mite"
+    },
+    {
+      "id": "tomato_target_spot",
+      "name_zh": "番茄靶斑病",
+      "name_en": "Tomato Target Spot",
+      "pathogen": "Corynespora cassiicola",
+      "category": "真菌性病害",
+      "host_plants": [
+        "番茄",
+        "黃瓜",
+        "辣椒"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "熱帶及亞熱帶地區",
+      "symptoms": [
+        "葉片出現同心輪紋狀褐色病斑",
+        "病斑較早疫病大可達 2-3 cm",
+        "果實出現凹陷褐色病斑"
+      ],
+      "causes": [
+        "高溫高濕（25-30°C RH>80%）最易發病",
+        "植株下部通風不良處先發病",
+        "病菌在土壤病殘體中存活"
+      ],
+      "prevention": [
+        "加強下部葉片通風",
+        "避免葉面積水",
+        "清除並銷毀病葉"
+      ],
+      "treatment": [
+        "嘧菌酯 25% SC 1000 倍液",
+        "腐黴利 50% WP 1000 倍液",
+        "每 7-10 天噴施一次"
+      ],
+      "expert_advice": "靶斑病與早疫病症狀相似，靶斑病斑較大且無靶心狀，需注意區分以選擇正確藥劑。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Alternaria_solani_on_tomato.jpg/320px-Alternaria_solani_on_tomato.jpg",
+          "caption": "番茄靶斑病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Target_Spot"
+    },
+    {
+      "id": "tomato_yellow_leaf_curl",
+      "name_zh": "番茄黃化捲葉病毒病",
+      "name_en": "Tomato Yellow Leaf Curl Virus",
+      "pathogen": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+      "category": "病毒性病害",
+      "host_plants": [
+        "番茄"
+      ],
+      "severity": "嚴重",
+      "severity_level": 3,
+      "distribution": "地中海地區、中東、亞洲及美洲，台灣南部夏季高發",
+      "symptoms": [
+        "新葉黃化並向上捲曲",
+        "植株矮化生長受抑制",
+        "花朵脫落坐果率極低",
+        "感染植株幾乎完全失收"
+      ],
+      "causes": [
+        "由銀葉粉蝨（Bemisia tabaci）傳播",
+        "高溫乾旱有利粉蝨繁殖加速傳播",
+        "種植感病品種風險極高"
+      ],
+      "prevention": [
+        "嚴格防治銀葉粉蝨",
+        "使用防蟲網阻隔粉蝨",
+        "選用抗 TYLCV 品種（最有效）"
+      ],
+      "treatment": [
+        "目前無有效治療方法",
+        "發現即拔除減少傳染源",
+        "加強粉蝨防治阻斷傳播途徑"
+      ],
+      "expert_advice": "TYLCV 一旦感染無法治癒，抗病品種配合防蟲網設施是最有效的防治組合。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/TYLCV_symptoms.jpg/320px-TYLCV_symptoms.jpg",
+          "caption": "番茄黃化捲葉病毒病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus"
+    },
+    {
+      "id": "tomato_mosaic_virus",
+      "name_zh": "番茄嵌紋病毒病",
+      "name_en": "Tomato Mosaic Virus",
+      "pathogen": "Tomato Mosaic Virus (ToMV)",
+      "category": "病毒性病害",
+      "host_plants": [
+        "番茄",
+        "甜椒",
+        "茄子"
+      ],
+      "severity": "中度",
+      "severity_level": 2,
+      "distribution": "全球番茄產區",
+      "symptoms": [
+        "葉片出現深綠淺綠相間的嵌紋狀",
+        "新葉扭曲變形呈蕨葉狀",
+        "果實出現褐色壞疽斑或畸形",
+        "植株生長遲緩產量降低"
+      ],
+      "causes": [
+        "病毒透過接觸（農具、手）傳播極易",
+        "種子帶毒是初次感染來源",
+        "高溫（28-32°C）加速病毒複製"
+      ],
+      "prevention": [
+        "農事操作前用肥皂水洗手",
+        "農具定期消毒（10% 磷酸三鈉溶液）",
+        "使用無毒種子或種子熱處理"
+      ],
+      "treatment": [
+        "目前無有效化學治療方法",
+        "發現病株立即拔除",
+        "加強農具和手部消毒"
+      ],
+      "expert_advice": "ToMV 透過接觸傳播，農事操作衛生習慣是最重要的預防措施，農具消毒不可忽視。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Tomato_mosaic_virus.jpg/320px-Tomato_mosaic_virus.jpg",
+          "caption": "番茄嵌紋病毒病",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___Tomato_mosaic_virus"
+    },
+    {
+      "id": "tomato_healthy",
+      "name_zh": "番茄（健康）",
+      "name_en": "Tomato Healthy",
+      "pathogen": "無",
+      "category": "健康",
+      "host_plants": [
+        "番茄"
+      ],
+      "severity": "無",
+      "severity_level": 0,
+      "distribution": "—",
+      "symptoms": [
+        "葉色深綠有光澤",
+        "植株生長整齊葉形正常",
+        "無病斑或異常紋路"
+      ],
+      "causes": [
+        "良好農業管理",
+        "適當水肥供應"
+      ],
+      "prevention": [
+        "持續定期巡視田間",
+        "維持合理水肥管理"
+      ],
+      "treatment": [
+        "目前無需治療"
+      ],
+      "expert_advice": "植物目前健康，請維持現行良好管理措施，定期進行葉片外觀檢查。",
+      "images": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tomato_je.jpg/320px-Tomato_je.jpg",
+          "caption": "番茄（健康）",
+          "source": "Wikipedia"
+        }
+      ],
+      "kaggle_class": "Tomato___healthy"
+    }
+  ],
+  "total": 38
+}
