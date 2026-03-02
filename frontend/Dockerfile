@@ -1,5 +1,10 @@
 FROM node:18-alpine AS build
 WORKDIR /app
+
+# 宣告 build-time 參數 
+ARG VITE_API_URL 
+ENV VITE_API_URL=$VITE_API_URL
+
 COPY package*.json ./
 RUN npm ci
 COPY . .
