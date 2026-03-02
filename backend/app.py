@@ -1,5 +1,5 @@
 """
-app.py  ─  PhytoScan Flask 後端 API
+app.py  ?�  PhytoScan Flask 後端 API
 """
 import os, io, json, base64, time, re
 from pathlib import Path
@@ -15,34 +15,34 @@ BASE_DIR     = Path(__file__).parent
 MODEL_PATH   = BASE_DIR / "models" / "plant_disease_model.keras"
 ALT_MODEL    = BASE_DIR / "models" / "best_model.keras"
 CLASS_JSON   = BASE_DIR / "data"   / "class_names.json"
-DISEASE_JSON = BASE_DIR / "scraped_data" / "diseases.json"
+DISEASE_JSON = BASE_DIR / "diseases_updated.json"
 UPLOAD_DIR   = BASE_DIR / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 IMG_SIZE = (224, 224)
 
-# ─── 工具：統一 kaggle_class 格式 ─────────────────────────────────────────────
+# ?�?�?� 工具：統一 kaggle_class ?��? ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
 def normalize_kaggle_class(cls: str) -> str:
     """
-    將各種格式統一成 diseases.json 的三底線格式
-    例如：
-      Tomato_Early_blight   → Tomato___Early_blight
-      Tomato__Early_blight  → Tomato___Early_blight
-      Tomato___Early_blight → Tomato___Early_blight（不變）
+    將�?種格式統一??diseases.json ?��?底�??��?
+    例�?�?
+      Tomato_Early_blight   ??Tomato___Early_blight
+      Tomato__Early_blight  ??Tomato___Early_blight
+      Tomato___Early_blight ??Tomato___Early_blight（�?變�?
     """
-    # 先把所有連續底線壓成單底線
+    # ?��??�?��??底�?壓�??��?�?
     cls = re.sub(r'_+', '_', cls)
-    # 再把「植物名_病害名」的分隔改成三底線
-    # 規則：大寫開頭的第二個單字前改成 ___
-    # 例如 Tomato_Early → Tomato___Early
+    # ?��??��??��?_?�害?�」�??��??��?三�?�?
+    # 規�?：大寫�??��?第�??�單字�??��? ___
+    # 例�? Tomato_Early ??Tomato___Early
     cls = re.sub(r'_([A-Z])', r'___\1', cls)
     return cls
 
-# ─── 全域模型 (lazy load) ──────────────────────────────────────────────────────
+# ?�?�?� ?��?模�? (lazy load) ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
 _model       = None
 _class_names = None
-_diseases_db = None      # dict: normalized_kaggle_class → disease record
-_diseases_by_id = None   # dict: id → disease record
+_diseases_db = None      # dict: normalized_kaggle_class ??disease record
+_diseases_by_id = None   # dict: id ??disease record
 
 def get_model():
     global _model
@@ -51,10 +51,10 @@ def get_model():
         if path:
             from tensorflow import keras
             _model = keras.models.load_model(path)
-            print(f"✅ 模型載入：{path.name}")
+            print(f"??模�?載入：{path.name}")
         else:
             _model = "DEMO"
-            print("⚠️  模型未訓練，使用 DEMO 模式")
+            print("?��?  模�??��?練�?使用 DEMO 模�?")
     return _model
 
 def get_class_names():
@@ -68,21 +68,22 @@ def get_class_names():
     return _class_names
 
 def get_diseases_db():
-    """回傳以 normalized kaggle_class 為 key 的字典"""
+    """?�傳�?normalized kaggle_class ??key ?��???""
     global _diseases_db, _diseases_by_id
     if _diseases_db is None:
         if DISEASE_JSON.exists():
-            with open(DISEASE_JSON, encoding="utf-8") as f:  # ← 修正編碼
+            with open(DISEASE_JSON, encoding="utf-8") as f:  # ??修正編碼
                 data = json.load(f)
             _diseases_db    = {}
             _diseases_by_id = {}
-            for d in data["diseases"]:
-                # 同時建立原始 key 和 normalized key，確保兩種格式都能找到
+            disease_list = data if isinstance(data, list) else data.get("diseases", [])
+            for d in disease_list:
+                # ?��?建�??��? key ??normalized key，確保兩種格式都?�找??
                 original_key   = d.get("kaggle_class", "")
                 normalized_key = normalize_kaggle_class(original_key)
                 _diseases_db[original_key]   = d
                 _diseases_db[normalized_key] = d
-                # 以 id 為 key 的備用字典
+                # �?id ??key ?��??��???
                 if d.get("id"):
                     _diseases_by_id[d["id"]] = d
         else:
@@ -98,7 +99,7 @@ def get_diseases_db():
     return _diseases_db
 
 def lookup_disease(kaggle_class: str) -> dict:
-    """用 kaggle_class 查詢病害，找不到時嘗試 normalized 版本"""
+    """??kaggle_class ?�詢?�害，找不到?��?�?normalized ?�本"""
     db = get_diseases_db()
     return (
         db.get(kaggle_class)
@@ -106,7 +107,7 @@ def lookup_disease(kaggle_class: str) -> dict:
         or {}
     )
 
-# ─── 圖片預處理 ────────────────────────────────────────────────────────────────
+# ?�?�?� ?��??��????�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
 def preprocess_image(img: Image.Image) -> np.ndarray:
     img = img.convert("RGB").resize(IMG_SIZE)
     arr = np.array(img, dtype=np.float32) / 255.0
@@ -126,7 +127,7 @@ def demo_predict(img_array: np.ndarray):
     probs /= probs.sum()
     return classes, probs
 
-# ─── API 端點 ──────────────────────────────────────────────────────────────────
+# ?�?�?� API 端�? ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
 
 @app.route('/')
 def home():
@@ -168,13 +169,13 @@ def diseases():
 @app.route("/api/diseases/<disease_id>")
 def disease_detail(disease_id):
     global _diseases_by_id
-    get_diseases_db()  # 確保已初始化
+    get_diseases_db()  # 確�?已�?始�?
     record = _diseases_by_id.get(disease_id)
     if not record:
-        # fallback：用 kaggle_class 查
+        # fallback：用 kaggle_class ??
         record = lookup_disease(disease_id)
     if not record:
-        return jsonify({"error": "找不到該病害"}), 404
+        return jsonify({"error": "?��??�該?�害"}), 404
     return jsonify(record)
 
 @app.route("/api/stats")
@@ -191,18 +192,18 @@ def stats():
         "total_identifications": 1389,
         "accuracy":              "94.3%",
         "model_version":         "v2.1",
-        "dataset":               "PlantVillage (Kaggle) — 54,305 張",
+        "dataset":               "PlantVillage (Kaggle) ??54,305 �?,
         "categories": {
-            "真菌性病害": sum(1 for d in unique if d.get("category") == "真菌性病害"),
-            "細菌性病害": sum(1 for d in unique if d.get("category") == "細菌性病害"),
-            "卵菌性病害": sum(1 for d in unique if d.get("category") == "卵菌性病害"),
-            "健康":       sum(1 for d in unique if d.get("category") == "健康"),
+            "?��??��?�?: sum(1 for d in unique if d.get("category") == "?��??��?�?),
+            "細�??��?�?: sum(1 for d in unique if d.get("category") == "細�??��?�?),
+            "?��??��?�?: sum(1 for d in unique if d.get("category") == "?��??��?�?),
+            "?�康":       sum(1 for d in unique if d.get("category") == "?�康"),
         }
     })
 
 @app.route("/api/predict", methods=["POST"])
 def predict():
-    # ── 取得圖片 ────────────────────────────────────────────────────────────────
+    # ?�?� ?��??��? ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
     try:
         if "image" in request.files:
             img = Image.open(request.files["image"].stream)
@@ -212,11 +213,11 @@ def predict():
                 raw = raw.split(",", 1)[1]
             img = Image.open(io.BytesIO(base64.b64decode(raw)))
         else:
-            return jsonify({"error": "請提供圖片（multipart image 或 JSON image_data）"}), 400
+            return jsonify({"error": "請�?供�??��?multipart image ??JSON image_data�?}), 400
     except Exception as e:
-        return jsonify({"error": f"圖片解析失敗：{e}"}), 400
+        return jsonify({"error": f"?��?�??失�?：{e}"}), 400
 
-    # ── 推論 ─────────────────────────────────────────────────────────────────────
+    # ?�?� ?��? ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
     t0    = time.time()
     arr   = preprocess_image(img)
     model = get_model()
@@ -232,13 +233,13 @@ def predict():
 
     elapsed = round(time.time() - t0, 2)
 
-    # ── 整理結果 ─────────────────────────────────────────────────────────────────
+    # ?�?� ?��?結�? ?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�?�
     top_idx = np.argsort(probs)[::-1]
 
     top3 = []
     for i in top_idx[:3]:
         cls = classes[i]
-        rec = lookup_disease(cls)  # ← 使用新的 lookup，自動處理格式差異
+        rec = lookup_disease(cls)  # ??使用?��? lookup，自?��??�格式差??
         top3.append({
             "kaggle_class": cls,
             "disease_id":   rec.get("id"),
@@ -270,7 +271,7 @@ def predict():
     })
 
 if __name__ == "__main__":
-    # 啟動時預先載入模型
+    # ?��??��??��??�模??
     get_model()
     get_class_names()
     get_diseases_db()

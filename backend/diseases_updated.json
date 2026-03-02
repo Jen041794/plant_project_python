@@ -1,0 +1,153 @@
+[
+  {
+    "id": "apple_scab",
+    "images": [
+      {
+        "url": "/static/disease_images/d45c153b3311c36f6aa786eb145815da.jpg",
+        "caption": "Apple scab Venturia inaequalis",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "/static/disease_images/f9babb843b8d6e0a3f3a047817841864.jpg",
+        "caption": "<br>\n<b>Title</b>: Biennial report of the Oregon State Board of Horticulture ..<br>\n<b>Identifier</b",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "apple_black_rot",
+    "images": [
+      {
+        "url": "/static/disease_images/6d077d656fdd0500de10c1771692c5c7.jpg",
+        "caption": "Symptoms of black rot on what appears to be apple, being caused by the plant pathogenic fungus Botry",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "apple_cedar_rust",
+    "images": [
+      {
+        "url": "/static/disease_images/7978ffdc1dc3212b842945af226d6a68.jpg",
+        "caption": "Cedar apple rust on the top of a crab apple leaf",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "corn_cercospora",
+    "images": []
+  },
+  {
+    "id": "corn_common_rust",
+    "images": [
+      {
+        "url": "/static/disease_images/afe841deadf7be2ff8253b6595fc752a.jpg",
+        "caption": "Common corn rust (Symptoms)\n<br><i><b>Puccinia sorghi</b></i> Schwein.\n\nImage location: United State",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "corn_northern_blight",
+    "images": []
+  },
+  {
+    "id": "grape_black_rot",
+    "images": []
+  },
+  {
+    "id": "grape_esca",
+    "images": []
+  },
+  {
+    "id": "grape_leaf_blight",
+    "images": []
+  },
+  {
+    "id": "orange_haunglongbing",
+    "images": [
+      {
+        "url": "/static/disease_images/a37f6c732637e4e6c09036457736dcc5.jpg",
+        "caption": "<a href=\"https://en.wikipedia.org/wiki/Huanglongbing\" class=\"extiw\" title=\"en:Huanglongbing\">Huanglo",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "peach_bacterial_spot",
+    "images": []
+  },
+  {
+    "id": "pepper_bacterial_spot",
+    "images": []
+  },
+  {
+    "id": "potato_early_blight",
+    "images": []
+  },
+  {
+    "id": "potato_late_blight",
+    "images": []
+  },
+  {
+    "id": "squash_powdery_mildew",
+    "images": []
+  },
+  {
+    "id": "strawberry_leaf_scorch",
+    "images": [
+      {
+        "url": "/static/disease_images/1f38c25f2f8fd8babb1dadeacc9584e9.jpg",
+        "caption": "<br>\n<b>Title</b>: Allen's 83rd book of berries<br>\n<b>Identifier</b>: allens83rdbookof19alle (<a cl",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  },
+  {
+    "id": "tomato_bacterial_spot",
+    "images": []
+  },
+  {
+    "id": "tomato_early_blight",
+    "images": []
+  },
+  {
+    "id": "tomato_late_blight",
+    "images": []
+  },
+  {
+    "id": "tomato_leaf_mold",
+    "images": []
+  },
+  {
+    "id": "tomato_septoria",
+    "images": []
+  },
+  {
+    "id": "tomato_spider_mites",
+    "images": []
+  },
+  {
+    "id": "tomato_target_spot",
+    "images": []
+  },
+  {
+    "id": "tomato_yellow_leaf_curl",
+    "images": []
+  },
+  {
+    "id": "tomato_mosaic_virus",
+    "images": []
+  },
+  {
+    "id": "healthy",
+    "images": [
+      {
+        "url": "/static/disease_images/26e23cccaaffeb27c320fd410b1a05c5.jpg",
+        "caption": "<br>\n<b>Identifier</b>: studiesontobacco00jenk (<a class=\"external text\" href=\"https://commons.wikim",
+        "source": "Wikimedia Commons"
+      }
+    ]
+  }
+]
