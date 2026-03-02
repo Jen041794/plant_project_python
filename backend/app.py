@@ -1,5 +1,5 @@
 """
-app.py  ?ï¿? PhytoScan Flask å¾Œç«¯ API
+app.py - PhytoScan Flask Backend API
 """
 import os, io, json, base64, time, re
 from pathlib import Path
@@ -21,28 +21,24 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 IMG_SIZE = (224, 224)
 
-# ?ï¿?ï¿?ï¿?å·¥å…·ï¼šçµ±ä¸€ kaggle_class ?ï¿½ï¿½? ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+# â”€â”€ Normalize kaggle_class format â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def normalize_kaggle_class(cls: str) -> str:
     """
-    å°‡ï¿½?ç¨®æ ¼å¼çµ±ä¸€??diseases.json ?ï¿½ï¿½?åº•ï¿½??ï¿½ï¿½?
-    ä¾‹ï¿½?ï¿?
-      Tomato_Early_blight   ??Tomato___Early_blight
-      Tomato__Early_blight  ??Tomato___Early_blight
-      Tomato___Early_blight ??Tomato___Early_blightï¼ˆï¿½?è®Šï¿½?
+    Normalize various kaggle_class formats to match diseases.json keys.
+    Examples:
+      Tomato_Early_blight   -> Tomato___Early_blight
+      Tomato__Early_blight  -> Tomato___Early_blight
+      Tomato___Early_blight -> Tomato___Early_blight (unchanged)
     """
-    # ?ï¿½ï¿½??ï¿?ï¿½ï¿½??åº•ï¿½?å£“ï¿½??ï¿½ï¿½?ï¿?
     cls = re.sub(r'_+', '_', cls)
-    # ?ï¿½ï¿½??ï¿½ï¿½??ï¿½ï¿½?_?ï¿½å®³?ï¿½ã€ï¿½??ï¿½ï¿½??ï¿½ï¿½?ä¸‰ï¿½?ï¿?
-    # è¦ï¿½?ï¼šå¤§å¯«ï¿½??ï¿½ï¿½?ç¬¬ï¿½??ï¿½å–®å­—ï¿½??ï¿½ï¿½? ___
-    # ä¾‹ï¿½? Tomato_Early ??Tomato___Early
     cls = re.sub(r'_([A-Z])', r'___\1', cls)
     return cls
 
-# ?ï¿?ï¿?ï¿??ï¿½ï¿½?æ¨¡ï¿½? (lazy load) ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
-_model       = None
-_class_names = None
-_diseases_db = None      # dict: normalized_kaggle_class ??disease record
-_diseases_by_id = None   # dict: id ??disease record
+# â”€â”€ Lazy load globals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+_model          = None
+_class_names    = None
+_diseases_db    = None   # dict: normalized_kaggle_class -> disease record
+_diseases_by_id = None   # dict: id -> disease record
 
 def get_model():
     global _model
@@ -51,10 +47,10 @@ def get_model():
         if path:
             from tensorflow import keras
             _model = keras.models.load_model(path)
-            print(f"??æ¨¡ï¿½?è¼‰å…¥ï¼š{path.name}")
+            print(f"Model loaded: {path.name}")
         else:
             _model = "DEMO"
-            print("?ï¿½ï¿½?  æ¨¡ï¿½??ï¿½ï¿½?ç·´ï¿½?ä½¿ç”¨ DEMO æ¨¡ï¿½?")
+            print("No model found, using DEMO mode")
     return _model
 
 def get_class_names():
@@ -68,22 +64,21 @@ def get_class_names():
     return _class_names
 
 def get_diseases_db():
-    """?ï¿½å‚³ï¿?normalized kaggle_class ??key ?ï¿½ï¿½???""
+    """Return dict keyed by normalized kaggle_class."""
     global _diseases_db, _diseases_by_id
     if _diseases_db is None:
         if DISEASE_JSON.exists():
-            with open(DISEASE_JSON, encoding="utf-8") as f:  # ??ä¿®æ­£ç·¨ç¢¼
+            with open(DISEASE_JSON, encoding="utf-8") as f:
                 data = json.load(f)
             _diseases_db    = {}
             _diseases_by_id = {}
+            # Support both list format and {"diseases": [...]} format
             disease_list = data if isinstance(data, list) else data.get("diseases", [])
             for d in disease_list:
-                # ?ï¿½ï¿½?å»ºï¿½??ï¿½ï¿½? key ??normalized keyï¼Œç¢ºä¿å…©ç¨®æ ¼å¼éƒ½?ï¿½æ‰¾??
                 original_key   = d.get("kaggle_class", "")
                 normalized_key = normalize_kaggle_class(original_key)
                 _diseases_db[original_key]   = d
                 _diseases_db[normalized_key] = d
-                # ï¿?id ??key ?ï¿½ï¿½??ï¿½ï¿½???
                 if d.get("id"):
                     _diseases_by_id[d["id"]] = d
         else:
@@ -92,33 +87,32 @@ def get_diseases_db():
             _diseases_by_id = {}
             for d in STATIC_DISEASES:
                 key = d.get("kaggle_class", "")
-                _diseases_db[key]                          = d
-                _diseases_db[normalize_kaggle_class(key)]  = d
+                _diseases_db[key]                         = d
+                _diseases_db[normalize_kaggle_class(key)] = d
                 if d.get("id"):
                     _diseases_by_id[d["id"]] = d
     return _diseases_db
 
 def lookup_disease(kaggle_class: str) -> dict:
-    """Lookup disease by kaggle_class, fallback to normalized version."""    db = get_diseases_db()
+    """Lookup disease by kaggle_class, fallback to normalized version."""
+    db = get_diseases_db()
     return (
         db.get(kaggle_class)
         or db.get(normalize_kaggle_class(kaggle_class))
         or {}
     )
 
-# ?ï¿?ï¿?ï¿??ï¿½ï¿½??ï¿½ï¿½????ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+# â”€â”€ Image preprocessing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def preprocess_image(img: Image.Image) -> np.ndarray:
     img = img.convert("RGB").resize(IMG_SIZE)
     arr = np.array(img, dtype=np.float32) / 255.0
     return np.expand_dims(arr, axis=0)
 
 def demo_predict(img_array: np.ndarray):
-    db      = get_diseases_db()
     classes = get_class_names()
     avg_g   = float(np.mean(img_array[0, :, :, 1]))
     healthy_idx = next(
-        (i for i, c in enumerate(classes) if "healthy" in c.lower()),
-        0
+        (i for i, c in enumerate(classes) if "healthy" in c.lower()), 0
     )
     probs   = np.random.dirichlet(np.ones(len(classes)) * 0.4)
     primary = healthy_idx if avg_g > 0.45 else np.random.randint(0, max(len(classes) - 1, 1))
@@ -126,17 +120,11 @@ def demo_predict(img_array: np.ndarray):
     probs /= probs.sum()
     return classes, probs
 
-# ?ï¿?ï¿?ï¿?API ç«¯ï¿½? ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+# â”€â”€ API Routes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-@app.route('/')
+@app.route("/")
 def home():
     return {"message": "Flask API is running!"}
-
-
-
-
-
-
 
 @app.route("/api/health")
 def health():
@@ -145,7 +133,7 @@ def health():
 @app.route("/api/diseases")
 def diseases():
     db = get_diseases_db()
-    seen = set()
+    seen   = set()
     result = []
     for d in db.values():
         did = d.get("id")
@@ -168,19 +156,18 @@ def diseases():
 @app.route("/api/diseases/<disease_id>")
 def disease_detail(disease_id):
     global _diseases_by_id
-    get_diseases_db()  # ç¢ºï¿½?å·²ï¿½?å§‹ï¿½?
+    get_diseases_db()
     record = _diseases_by_id.get(disease_id)
     if not record:
-        # fallbackï¼šç”¨ kaggle_class ??
         record = lookup_disease(disease_id)
     if not record:
-        return jsonify({"error": "?ï¿½ï¿½??ï¿½è©²?ï¿½å®³"}), 404
+        return jsonify({"error": "Disease not found"}), 404
     return jsonify(record)
 
 @app.route("/api/stats")
 def stats():
-    db   = get_diseases_db()
-    seen = set()
+    db     = get_diseases_db()
+    seen   = set()
     unique = []
     for d in db.values():
         if d.get("id") not in seen:
@@ -191,18 +178,18 @@ def stats():
         "total_identifications": 1389,
         "accuracy":              "94.3%",
         "model_version":         "v2.1",
-        "dataset":               "PlantVillage (Kaggle) ??54,305 ï¿?,
+        "dataset":               "PlantVillage (Kaggle) 54,305 images",
         "categories": {
-            "?ï¿½ï¿½??ï¿½ï¿½?ï¿?: sum(1 for d in unique if d.get("category") == "?ï¿½ï¿½??ï¿½ï¿½?ï¿?),
-            "ç´°ï¿½??ï¿½ï¿½?ï¿?: sum(1 for d in unique if d.get("category") == "ç´°ï¿½??ï¿½ï¿½?ï¿?),
-            "?ï¿½ï¿½??ï¿½ï¿½?ï¿?: sum(1 for d in unique if d.get("category") == "?ï¿½ï¿½??ï¿½ï¿½?ï¿?),
-            "?ï¿½åº·":       sum(1 for d in unique if d.get("category") == "?ï¿½åº·"),
+            "fungal":    sum(1 for d in unique if d.get("category") == "çœŸèŒæ€§ç—…å®³"),
+            "bacterial": sum(1 for d in unique if d.get("category") == "ç´°èŒæ€§ç—…å®³"),
+            "oomycete":  sum(1 for d in unique if d.get("category") == "åµèŒæ€§ç—…å®³"),
+            "healthy":   sum(1 for d in unique if d.get("category") == "å¥åº·"),
         }
     })
 
 @app.route("/api/predict", methods=["POST"])
 def predict():
-    # ?ï¿?ï¿??ï¿½ï¿½??ï¿½ï¿½? ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+    # Parse image input
     try:
         if "image" in request.files:
             img = Image.open(request.files["image"].stream)
@@ -212,11 +199,11 @@ def predict():
                 raw = raw.split(",", 1)[1]
             img = Image.open(io.BytesIO(base64.b64decode(raw)))
         else:
-            return jsonify({"error": "è«‹ï¿½?ä¾›ï¿½??ï¿½ï¿½?multipart image ??JSON image_dataï¿?}), 400
+            return jsonify({"error": "Please provide multipart image or JSON image_data"}), 400
     except Exception as e:
-        return jsonify({"error": f"?ï¿½ï¿½?ï¿??å¤±ï¿½?ï¼š{e}"}), 400
+        return jsonify({"error": f"Image parse failed: {e}"}), 400
 
-    # ?ï¿?ï¿??ï¿½ï¿½? ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+    # Run prediction
     t0    = time.time()
     arr   = preprocess_image(img)
     model = get_model()
@@ -232,13 +219,13 @@ def predict():
 
     elapsed = round(time.time() - t0, 2)
 
-    # ?ï¿?ï¿??ï¿½ï¿½?çµï¿½? ?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?ï¿?
+    # Build response
     top_idx = np.argsort(probs)[::-1]
 
     top3 = []
     for i in top_idx[:3]:
         cls = classes[i]
-        rec = lookup_disease(cls)  # ??ä½¿ç”¨?ï¿½ï¿½? lookupï¼Œè‡ª?ï¿½ï¿½??ï¿½æ ¼å¼å·®??
+        rec = lookup_disease(cls)
         top3.append({
             "kaggle_class": cls,
             "disease_id":   rec.get("id"),
@@ -270,7 +257,6 @@ def predict():
     })
 
 if __name__ == "__main__":
-    # ?ï¿½ï¿½??ï¿½ï¿½??ï¿½ï¿½??ï¿½æ¨¡??
     get_model()
     get_class_names()
     get_diseases_db()
