@@ -3,7 +3,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN echo "VITE_API_URL=$VITE_API_URL" 
+# Debug 用：確認有吃到值 
+RUN echo "VITE_API_URL during build: $VITE_API_URL"
 RUN npm run build
 
 FROM nginx:alpine
